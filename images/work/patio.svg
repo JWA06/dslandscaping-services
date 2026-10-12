@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cdebd5"/><stop offset="1" stop-color="#eef9f0"/></linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#sky)"/>
+  <path d="M0 120 C120 100 280 104 400 116 L400 300 L0 300Z" fill="#6cc17f"/>
+  <g fill="#2f8a50"><circle cx="40" cy="116" r="24"/><circle cx="90" cy="110" r="20"/><circle cx="330" cy="112" r="22"/><circle cx="372" cy="116" r="26"/></g>
+  <!-- patio slabs in perspective -->
+  <path d="M90 150 L310 150 L380 300 L20 300Z" fill="#d9d1ba"/>
+  <g fill="none" stroke="#c4bba1" stroke-width="3">
+    <path d="M80 172 L320 172"/><path d="M66 202 L334 202"/><path d="M48 240 L352 240"/>
+    <path d="M145 150 L110 300"/><path d="M200 150 L200 300"/><path d="M255 150 L290 300"/>
+  </g>
+  <g fill="#e9e3d0" opacity=".6">
+    <path d="M90 150 L145 150 L139 172 L80 172Z"/><path d="M200 172 L255 172 L262 202 L200 202Z"/>
+    <path d="M128 202 L200 202 L200 240 L118 240Z"/><path d="M266 240 L352 240 L380 300 L290 300Z"/>
+  </g>
+  <!-- pots -->
+  <g>
+    <path d="M58 228 L102 228 L96 270 L64 270Z" fill="#c8794a"/>
+    <rect x="54" y="222" width="52" height="10" rx="4" fill="#b0663b"/>
+    <circle cx="70" cy="206" r="18" fill="#2f8a50"/><circle cx="92" cy="202" r="20" fill="#256b40"/><circle cx="80" cy="190" r="14" fill="#43a663"/>
+    <path d="M300 214 L336 214 L332 250 L304 250Z" fill="#c8794a"/>
+    <rect x="296" y="208" width="44" height="9" rx="4" fill="#b0663b"/>
+    <circle cx="318" cy="190" r="22" fill="#256b40"/><circle cx="310" cy="182" r="8" fill="#43a663"/>
+  </g>
+  <!-- bench -->
+  <g fill="#8a5d36">
+    <rect x="160" y="160" width="80" height="8" rx="3"/><rect x="160" y="172" width="80" height="6" rx="3"/>
+    <rect x="166" y="178" width="6" height="18"/><rect x="228" y="178" width="6" height="18"/>
+  </g>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cdebd5"/><stop offset="1" stop-color="#eef9f0"/></linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#sky)"/>
+  <circle cx="340" cy="58" r="26" fill="#ffe08a"/>
+  <path d="M0 130 C120 112 260 118 400 128 L400 300 L0 300Z" fill="#6cc17f"/>
+  <!-- curved border bed -->
+  <path d="M0 170 C100 150 300 150 400 172 L400 300 L0 300Z" fill="#6b4a2b"/>
+  <path d="M0 262 C120 250 280 250 400 262 L400 300 L0 300Z" fill="#52b46f"/>
+  <!-- tall plants (back row) -->
+  <g stroke="#2f8a50" stroke-width="3" stroke-linecap="round">
+    <path d="M40 200 V140"/><path d="M110 196 V126"/><path d="M200 194 V120"/><path d="M290 196 V128"/><path d="M360 200 V140"/>
+  </g>
+  <g fill="#c9a6f0"><ellipse cx="40" cy="138" rx="8" ry="16"/><ellipse cx="200" cy="118" rx="8" ry="18"/><ellipse cx="360" cy="138" rx="8" ry="16"/></g>
+  <g fill="#f7a8c4"><ellipse cx="110" cy="124" rx="8" ry="16"/><ellipse cx="290" cy="126" rx="8" ry="16"/></g>
+  <!-- mid shrubs -->
+  <g fill="#256b40"><circle cx="70" cy="200" r="24"/><circle cx="160" cy="196" r="26"/><circle cx="250" cy="196" r="26"/><circle cx="336" cy="200" r="24"/></g>
+  <g fill="#2f8a50"><circle cx="116" cy="210" r="20"/><circle cx="206" cy="208" r="22"/><circle cx="294" cy="210" r="20"/><circle cx="24" cy="212" r="18"/><circle cx="380" cy="212" r="18"/></g>
+  <!-- flowers (front) -->
+  <g>
+    <circle cx="30" cy="236" r="8" fill="#3f9d5c"/><circle cx="30" cy="230" r="6" fill="#ffd25e"/>
+    <circle cx="74" cy="238" r="8" fill="#3f9d5c"/><circle cx="74" cy="232" r="6" fill="#fff"/>
+    <circle cx="118" cy="240" r="8" fill="#3f9d5c"/><circle cx="118" cy="234" r="6" fill="#f7a8c4"/>
+    <circle cx="162" cy="238" r="8" fill="#3f9d5c"/><circle cx="162" cy="232" r="6" fill="#ffd25e"/>
+    <circle cx="206" cy="240" r="8" fill="#3f9d5c"/><circle cx="206" cy="234" r="6" fill="#c9a6f0"/>
+    <circle cx="250" cy="238" r="8" fill="#3f9d5c"/><circle cx="250" cy="232" r="6" fill="#fff"/>
+    <circle cx="294" cy="240" r="8" fill="#3f9d5c"/><circle cx="294" cy="234" r="6" fill="#f7a8c4"/>
+    <circle cx="338" cy="238" r="8" fill="#3f9d5c"/><circle cx="338" cy="232" r="6" fill="#ffd25e"/>
+    <circle cx="378" cy="240" r="8" fill="#3f9d5c"/><circle cx="378" cy="234" r="6" fill="#c9a6f0"/>
+  </g>
+  <!-- trowel -->
+  <g transform="translate(300 272) rotate(-12)">
+    <path d="M0 0 C10 -10 30 -10 40 0 C30 10 10 10 0 0Z" fill="#cfd8d3"/>
+    <rect x="-34" y="-3.5" width="34" height="7" rx="3.5" fill="#c8794a"/>
+  </g>
+</svg>
