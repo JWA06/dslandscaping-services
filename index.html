@@ -3,151 +3,266 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DSLandscaping Services | Garden Maintenance &amp; Landscaping</title>
-  <meta name="description" content="DSLandscaping Services: garden maintenance and landscaping. Grass cutting, hedge cutting, turfing, patios, fencing, planting and garden clearances. Call or text 07700 900123 for a free quote.">
-  <meta name="theme-color" content="#1d3b26">
+  <title>DSLandscaping Services | Landscaping &amp; Garden Maintenance</title>
+  <meta name="description" content="DSLandscaping Services: landscaping and garden maintenance. Lawn care, hedge cutting, patios, fencing and planting, from regular care to complete garden makeovers. Request a free quote.">
+  <meta name="theme-color" content="#1e3125">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="DSLandscaping Services">
-  <meta property="og:description" content="Garden maintenance and landscaping. Call or text for a free quote.">
+  <meta property="og:description" content="Landscaping and garden maintenance. Request a free, no-obligation quote.">
 
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body id="top">
+<body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <div class="container header-main">
+  <!--
+    PHOTOS: the photos on this page are realistic AI-generated stand-ins, loaded from
+    Higgsfield. They are general garden imagery, not photos of DSLandscaping's own work.
+    Replace them with real photos when you have them (see README.md).
+  -->
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
       <a class="logo" href="#top" aria-label="DSLandscaping Services, back to top">
-        <span class="logo-mark" aria-hidden="true">DS</span>
-        <span class="logo-text">
-          <span class="logo-name">DSLandscaping</span>
-          <span class="logo-sub">Services</span>
-        </span>
+        <span class="logo-name">DSLandscaping</span>
+        <span class="logo-sub">Services</span>
       </a>
 
-      <div class="header-contact">
-        <span class="header-contact-label">Free quotes. Call or text</span>
-        <a class="header-phone" href="tel:+447700900123">07700 900123</a>
-      </div>
-
-      <div class="header-mobile-actions">
-        <a class="icon-btn" href="tel:+447700900123" aria-label="Call 07700 900123">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
-        </a>
-        <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-          <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-          <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-          <span class="visually-hidden">Menu</span>
-        </button>
-      </div>
-    </div>
-
-    <nav class="site-nav" id="site-nav" aria-label="Main">
-      <div class="container">
-        <ul>
-          <li><a href="#top">Home</a></li>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul class="nav-links">
           <li><a href="#services">Services</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="#process">How it works</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-      </div>
-    </nav>
+        <div class="nav-extra">
+          <a class="nav-phone" href="tel:+447700900123">07700 900123</a>
+          <a class="btn btn-outline-light btn-sm" href="#contact">Request a quote</a>
+        </div>
+      </nav>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-lines" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+    </div>
   </header>
 
   <main id="main">
+    <!-- Hero -->
     <section class="hero">
-      <div class="container">
-        <h1>Garden maintenance &amp; landscaping</h1>
+      <img class="hero-img"
+           src="https://d8j0ntlcm91z4.cloudfront.net/user_3CLac0lCoz0J6DoxCOKYeE8ZX6J/hf_20261012_112457_7760e2da-8f18-4dfe-9e87-918988e92ce5.png"
+           alt="" width="2688" height="1520" fetchpriority="high">
+      <div class="hero-shade" aria-hidden="true"></div>
+
+      <div class="container hero-content">
+        <p class="label label-light">Landscaping &amp; Garden Maintenance</p>
+        <h1>Gardens worth coming home to.</h1>
         <p class="hero-lead">
-          Grass cutting, hedges, turfing, patios, fencing and planting, for regular
-          visits or one-off jobs. Based in Your Town and covering the surrounding area.
+          From regular garden care to complete makeovers, we look after outdoor spaces
+          in Your Town and the surrounding area with real care and attention to detail.
         </p>
-        <div class="hero-buttons">
-          <a class="btn btn-light" href="#contact">Get a free quote</a>
-          <a class="btn btn-outline-light" href="tel:+447700900123">Call 07700 900123</a>
+        <div class="hero-actions">
+          <a class="btn btn-cream" href="#contact">Request a free quote</a>
+          <a class="link-arrow link-arrow-light" href="#services">Explore our services</a>
         </div>
-        <ul class="hero-facts">
+      </div>
+
+      <div class="container hero-strip">
+        <ul>
           <li>Free, no-obligation quotes</li>
-          <li>Garden waste taken away</li>
-          <li>Small jobs welcome</li>
+          <li>Regular &amp; one-off visits</li>
+          <li>Your Town &amp; surrounding areas</li>
         </ul>
       </div>
     </section>
 
-    <section class="section" id="services">
-      <div class="container services-layout">
-        <div class="services-intro">
-          <h2>What we do</h2>
+    <!-- About -->
+    <section class="section about" id="about">
+      <div class="container about-grid">
+        <figure class="about-photo">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3CLac0lCoz0J6DoxCOKYeE8ZX6J/hf_20261012_112458_c0b814ea-7059-449c-8e25-24cbb61661d5.png"
+               alt="Secateurs, a trowel, twine and gloves on a wooden potting bench" width="896" height="1120" loading="lazy">
+        </figure>
+
+        <div class="about-copy">
+          <p class="label">About us</p>
+          <h2>Careful work, honest prices and gardens you’ll be proud of.</h2>
           <p>
-            We look after gardens of all sizes, from a regular tidy-up to bigger jobs like
-            a new patio, fence or lawn.
+            DSLandscaping Services is a local landscaping business looking after gardens of
+            every size. Whether it’s a weekly tidy, a new lawn or a full redesign, every job
+            gets the same attention to detail.
           </p>
-          <p>If you need something that isn't on the list, ask. If we can't do it, we'll say so.</p>
-          <a class="btn btn-green" href="#contact">Ask for a quote</a>
+          <p>
+            We turn up when we say we will, explain everything clearly and leave your garden
+            spotless when we’re done.
+          </p>
+
+          <ul class="promises">
+            <li>
+              <h3>Free quotes</h3>
+              <p>No obligation and no pressure.</p>
+            </li>
+            <li>
+              <h3>Reliable</h3>
+              <p>On time, every time, and easy to reach.</p>
+            </li>
+            <li>
+              <h3>Tidy</h3>
+              <p>We clear up and take the waste away.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-top">
+          <div>
+            <p class="label">Our services</p>
+            <h2>What we can do for your garden</h2>
+          </div>
+          <p class="section-top-text">
+            Everything from regular upkeep to bigger projects. We also take on garden
+            clearances and smaller odd jobs, so if it’s not listed, <a href="#contact">just ask</a>.
+          </p>
         </div>
 
-        <ul class="services-list">
-          <li class="service">
-            <h3>Garden maintenance</h3>
-            <p>Weeding, pruning, borders and general tidying. Weekly, fortnightly, monthly or a one-off visit.</p>
-          </li>
-          <li class="service">
-            <h3>Grass cutting &amp; lawn care</h3>
-            <p>Mowing and edging, plus feeding, moss treatment and scarifying to keep the lawn healthy.</p>
-          </li>
-          <li class="service">
-            <h3>Hedge cutting</h3>
-            <p>Hedges and shrubs cut back and shaped, with all the cuttings cleared away.</p>
-          </li>
-          <li class="service">
-            <h3>Turfing</h3>
-            <p>Old grass lifted, the ground levelled and prepared, and new turf laid.</p>
-          </li>
-          <li class="service">
-            <h3>Patios &amp; paths</h3>
-            <p>New patios, paths and edging laid on a proper base so they stay level.</p>
-          </li>
-          <li class="service">
-            <h3>Fencing &amp; gates</h3>
-            <p>New fence panels, posts and gates, and repairs to storm-damaged fencing.</p>
-          </li>
-          <li class="service">
-            <h3>Planting &amp; borders</h3>
-            <p>New beds and borders planted up, or tired ones dug over and refreshed.</p>
-          </li>
-          <li class="service">
-            <h3>Garden clearances</h3>
-            <p>Overgrown gardens cut back and cleared, with the waste taken away.</p>
-          </li>
-        </ul>
+        <div class="service-grid">
+          <article class="service">
+            <div class="service-img">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3CLac0lCoz0J6DoxCOKYeE8ZX6J/hf_20261012_112456_88d0f51a-def4-4ee6-811a-a84e52f984aa.png"
+                   alt="A freshly edged lawn beside a weeded, mulched border" width="1168" height="880" loading="lazy">
+            </div>
+            <span class="service-num">01</span>
+            <h3>Garden Maintenance</h3>
+            <p>Regular or one-off visits: weeding, pruning, borders and general upkeep to keep everything looking its best.</p>
+          </article>
+
+          <article class="service">
+            <div class="service-img">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3CLac0lCoz0J6DoxCOKYeE8ZX6J/hf_20261012_112455_7907c12c-13c4-49da-a8a3-0ff40fc2c5fc.png"
+                   alt="A freshly mown, striped lawn with crisp edges" width="1168" height="880" loading="lazy">
+            </div>
+            <span class="service-num">02</span>
+            <h3>Lawn Care &amp; Turfing</h3>
+            <p>Mowing, edging, feeding and scarifying, or a brand-new lawn laid on properly prepared ground.</p>
+          </article>
+
+          <article class="service">
+            <div class="service-img">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3CLac0lCoz0J6DoxCOKYeE8ZX6J/hf_20261012_112455_ec6eb17f-af11-483d-9b8b-2f3588f56abd.png"
+                   alt="A neatly clipped yew hedge with a topiary ball in front" width="1168" height="880" loading="lazy">
+            </div>
+            <span class="service-num">03</span>
+            <h3>Hedge Cutting &amp; Shaping</h3>
+            <p>Hedges and shrubs cut back, shaped and kept in check, with every clipping cleared away.</p>
+          </article>
+
+          <article class="service">
+            <div class="service-img">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3CLac0lCoz0J6DoxCOKYeE8ZX6J/hf_20261012_112456_811acb97-792a-47cb-aa63-ee19299e6bec.png"
+                   alt="A light grey porcelain patio with an outdoor dining set and planters" width="1168" height="880" loading="lazy">
+            </div>
+            <span class="service-num">04</span>
+            <h3>Patios &amp; Paving</h3>
+            <p>Patios, paths and edging laid on a solid base, in natural stone or porcelain.</p>
+          </article>
+
+          <article class="service">
+            <div class="service-img">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3CLac0lCoz0J6DoxCOKYeE8ZX6J/hf_20261012_112457_9d521260-8904-4674-928f-92f0d2a3eefd.png"
+                   alt="A horizontal slatted timber fence with planting in front" width="1168" height="880" loading="lazy">
+            </div>
+            <span class="service-num">05</span>
+            <h3>Fencing &amp; Gates</h3>
+            <p>New fence panels, posts and gates fitted to last, plus repairs to storm-damaged fencing.</p>
+          </article>
+
+          <article class="service">
+            <div class="service-img">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3CLac0lCoz0J6DoxCOKYeE8ZX6J/hf_20261012_112455_0145b744-0883-448b-8690-0d7fbd0c7d6b.png"
+                   alt="A summer border of lavender, salvias, alliums and grasses" width="1168" height="880" loading="lazy">
+            </div>
+            <span class="service-num">06</span>
+            <h3>Planting &amp; Borders</h3>
+            <p>New beds and borders planned and planted, or tired ones lifted and given a fresh start.</p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="call-strip">
-      <div class="container call-strip-inner">
-        <p>Need a hand with the garden? <span>Call or text for a free quote.</span></p>
-        <a class="btn btn-light" href="tel:+447700900123">07700 900123</a>
+    <!-- Statement band -->
+    <section class="band">
+      <img class="band-img"
+           src="https://d8j0ntlcm91z4.cloudfront.net/user_3CLac0lCoz0J6DoxCOKYeE8ZX6J/hf_20261012_112458_05a12223-258f-4ff9-a9b1-7f571bcfffb1.png"
+           alt="" width="2688" height="1152" loading="lazy">
+      <div class="band-shade" aria-hidden="true"></div>
+      <div class="container band-content">
+        <p class="band-quote">
+          Every garden is different. We’ll come and see yours, talk it through and give you
+          a clear, honest quote.
+        </p>
+        <a class="btn btn-cream" href="#contact">Book a free visit</a>
       </div>
     </section>
 
-    <!-- RECENT WORK (hidden until there are photos)
+    <!-- How it works -->
+    <section class="section process" id="process">
+      <div class="container">
+        <div class="section-top">
+          <div>
+            <p class="label">How it works</p>
+            <h2>Simple from start to finish</h2>
+          </div>
+        </div>
+
+        <ol class="steps">
+          <li>
+            <span class="step-num">01</span>
+            <h3>Get in touch</h3>
+            <p>Call, email or send the form below with a few details about your garden.</p>
+          </li>
+          <li>
+            <span class="step-num">02</span>
+            <h3>Free visit &amp; quote</h3>
+            <p>We’ll come round, listen to what you’d like and give you a clear, no-obligation price.</p>
+          </li>
+          <li>
+            <span class="step-num">03</span>
+            <h3>The work</h3>
+            <p>We arrive when agreed, do the job properly and leave everything clean and tidy.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- RECENT WORK (hidden until there are photos of his own jobs)
          To show it:
          1. Save photos of finished jobs in images/work/ (e.g. job-1.jpg, job-2.jpg, job-3.jpg).
          2. Make sure the file names and descriptions below match the photos.
          3. Delete the two lines below marked "HIDDEN".
-         4. Add <li><a href="#work">Our Work</a></li> to the menu near the top of this file.
+         4. Add <li><a href="#work">Our work</a></li> to the menu near the top of this file.
     -->
     <!-- HIDDEN: delete this line to show Recent Work
-    <section class="section" id="work">
+    <section class="section work" id="work">
       <div class="container">
-        <h2>Recent work</h2>
+        <div class="section-top">
+          <div>
+            <p class="label">Our work</p>
+            <h2>Recent projects</h2>
+          </div>
+        </div>
         <div class="work-grid">
           <figure>
             <img src="images/work/job-1.jpg" alt="Describe the photo, e.g. new lawn laid in a back garden" loading="lazy">
@@ -159,63 +274,47 @@
           </figure>
           <figure>
             <img src="images/work/job-3.jpg" alt="Describe the photo" loading="lazy">
-            <figcaption>Hedge cut back, Your Town</figcaption>
+            <figcaption>Hedge reshaped, Your Town</figcaption>
           </figure>
         </div>
       </div>
     </section>
     HIDDEN: delete this line to show Recent Work -->
 
-    <section class="section section-alt" id="about">
-      <div class="container about-layout">
-        <div class="about-text">
-          <h2>About us</h2>
-          <!-- Make this personal: e.g. "I'm [name], and I started DSLandscaping Services in [year]..." -->
-          <p>
-            DSLandscaping Services is a small, local landscaping business. We look after
-            gardens around Your Town, from small front lawns to big back gardens that need
-            a complete overhaul.
-          </p>
-          <p>
-            We turn up when we say we will, keep things tidy while we work and take the garden
-            waste away afterwards. You'll get a clear price before any work starts.
-          </p>
-        </div>
-
-        <div class="how-box">
-          <h3>How it works</h3>
-          <ol>
-            <li><strong>Get in touch.</strong> Call, text or fill in the form below.</li>
-            <li><strong>We come and have a look.</strong> We'll talk through what you want and give you a price, with no obligation.</li>
-            <li><strong>We do the work</strong> on the day we agreed, and clear up when we're done.</li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <!-- REVIEWS (hidden until there are reviews)
+    <!-- REVIEWS (hidden until there are real reviews)
          To show it, paste in real reviews from customers (e.g. from Facebook or Google,
          with their permission), then delete the two lines below marked "HIDDEN".
+         Copy the <blockquote>…</blockquote> block for each extra review.
     -->
     <!-- HIDDEN: delete this line to show Reviews
-    <section class="section" id="reviews">
+    <section class="section reviews-section" id="reviews">
       <div class="container">
-        <h2>What customers say</h2>
+        <div class="section-top">
+          <div>
+            <p class="label">Reviews</p>
+            <h2>What our customers say</h2>
+          </div>
+        </div>
         <div class="reviews">
           <blockquote class="review">
-            <p>Paste the customer's review here.</p>
-            <footer>Customer's first name, Town</footer>
+            <p>Paste the customer’s review here.</p>
+            <footer>Customer’s first name, Town</footer>
           </blockquote>
         </div>
       </div>
     </section>
     HIDDEN: delete this line to show Reviews -->
 
-    <section class="section" id="contact">
-      <div class="container contact-layout">
-        <div class="contact-details">
-          <h2>Get a free quote</h2>
-          <p>Call or text, send an email, or fill in the form and we'll get back to you.</p>
+    <!-- Contact -->
+    <section class="section contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <p class="label label-light">Contact</p>
+          <h2>Let’s talk about your garden</h2>
+          <p>
+            Tell us a little about what you have in mind and we’ll get back to you to arrange
+            a free visit and quote.
+          </p>
 
           <dl class="details">
             <div>
@@ -228,11 +327,11 @@
             </div>
             <div>
               <dt>Areas covered</dt>
-              <dd>Your Town and surrounding areas</dd>
+              <dd>Your Town &amp; surrounding areas</dd>
             </div>
             <div>
               <dt>Hours</dt>
-              <dd>Monday to Friday, 8am–6pm<br>Saturday, 8am–1pm</dd>
+              <dd>Mon–Fri 8am–6pm · Sat 8am–1pm</dd>
             </div>
           </dl>
         </div>
@@ -253,13 +352,12 @@
             <input id="email" name="email" type="email" autocomplete="email" required>
           </div>
           <div class="field">
-            <label for="service">What do you need?</label>
+            <label for="service">Service</label>
             <select id="service" name="service">
               <option>Garden maintenance</option>
-              <option>Grass cutting &amp; lawn care</option>
-              <option>Hedge cutting</option>
-              <option>Turfing</option>
-              <option>Patios &amp; paths</option>
+              <option>Lawn care &amp; turfing</option>
+              <option>Hedge cutting &amp; shaping</option>
+              <option>Patios &amp; paving</option>
               <option>Fencing &amp; gates</option>
               <option>Planting &amp; borders</option>
               <option>Garden clearance</option>
@@ -267,10 +365,10 @@
             </select>
           </div>
           <div class="field">
-            <label for="message">Tell us about the job</label>
-            <textarea id="message" name="message" rows="5" required placeholder="Roughly what needs doing, and your address or postcode"></textarea>
+            <label for="message">About your garden</label>
+            <textarea id="message" name="message" rows="4" required placeholder="What would you like done? Roughly where are you?"></textarea>
           </div>
-          <button class="btn btn-green" type="submit">Send enquiry</button>
+          <button class="btn btn-cream" type="submit">Send enquiry</button>
           <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -278,19 +376,35 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <p class="footer-name">DSLandscaping Services</p>
-        <p>Garden maintenance &amp; landscaping in Your Town and surrounding areas.</p>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="#top" aria-label="DSLandscaping Services, back to top">
+          <span class="logo-name">DSLandscaping</span>
+          <span class="logo-sub">Services</span>
+        </a>
+        <p>Landscaping and garden maintenance in Your Town and the surrounding area.</p>
       </div>
-      <div class="footer-contact">
-        <a href="tel:+447700900123">07700 900123</a>
-        <a href="mailto:hello@example.com">hello@example.com</a>
+      <nav class="footer-col" aria-label="Footer">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#process">How it works</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <h3>Get in touch</h3>
+        <ul>
+          <li><a href="tel:+447700900123">07700 900123</a></li>
+          <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+        </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="container">
+      <div class="container footer-bottom-inner">
         <p>© <span id="year">2026</span> DSLandscaping Services</p>
+        <a href="#top">Back to top</a>
       </div>
     </div>
   </footer>

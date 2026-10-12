@@ -4,30 +4,45 @@
 
   document.documentElement.classList.add("js");
 
-  /* ---------- Mobile navigation ---------- */
+  /* ---------- Header: transparent over the hero, solid once scrolled ---------- */
+  var header = document.querySelector(".site-header");
+
+  function updateHeader() {
+    header.classList.toggle("is-solid", window.scrollY > 40);
+  }
+  window.addEventListener("scroll", updateHeader, { passive: true });
+  updateHeader();
+
+  /* ---------- Mobile navigation (full-screen panel) ---------- */
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.getElementById("site-nav");
 
-  function closeNav() {
-    nav.classList.remove("is-open");
-    toggle.setAttribute("aria-expanded", "false");
+  function setNav(open) {
+    nav.classList.toggle("is-open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+    // Stop the page scrolling behind the open menu
+    document.documentElement.style.overflow = open ? "hidden" : "";
   }
 
   if (toggle && nav) {
     toggle.addEventListener("click", function () {
-      var open = nav.classList.toggle("is-open");
-      toggle.setAttribute("aria-expanded", String(open));
+      setNav(!nav.classList.contains("is-open"));
     });
 
     nav.addEventListener("click", function (e) {
-      if (e.target.closest("a")) closeNav();
+      if (e.target.closest("a")) setNav(false);
     });
 
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && nav.classList.contains("is-open")) {
-        closeNav();
+        setNav(false);
         toggle.focus();
       }
+    });
+
+    // Close the panel if the window is widened to the desktop layout
+    window.matchMedia("(min-width: 1000px)").addEventListener("change", function (e) {
+      if (e.matches) setNav(false);
     });
   }
 
