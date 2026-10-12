@@ -1,82 +1,95 @@
 # DSLandscaping Services — Website
 
-A friendly, green-themed website for **DSLandscaping Services**, a local landscaping and garden care business.
+The website for **DSLandscaping Services**, garden maintenance and landscaping.
 
-It's a plain HTML, CSS and JavaScript site. There's no build step and nothing to install, so it can be hosted almost anywhere for free.
+It's plain HTML, CSS and JavaScript. There's no build step and nothing to install, so it can be hosted almost anywhere for free.
 
 ## What's on the site
 
-| Section | What it shows |
-| --- | --- |
-| **Hero** | Headline, short intro, "Get a Free Quote" button and a garden illustration |
-| **Services** | Garden maintenance, lawn care & turfing, hedge & tree trimming, patios & paving, fencing & decking, planting & garden design |
-| **About** | A short introduction and four values: reliable, tidy, fair pricing, care in every detail |
-| **Our Work** | A six-picture gallery (currently illustrations, ready to swap for real photos) |
-| **How It Works** | Four simple steps from first contact to finished garden |
-| **Contact** | Phone, email, area covered, opening hours and a quote request form |
+- **Header:** logo, phone number, and a green menu bar. On phones, a call button and a menu button.
+- **Top section:** what the business does, the area it covers, a "Get a free quote" button and a call button.
+- **What we do:** eight services, each with a short description.
+- **Call strip:** "Need a hand with the garden?" with the phone number.
+- **About us:** a short introduction, plus "How it works" in three steps.
+- **Get a free quote:** phone, email, areas covered, hours and an enquiry form.
+- **Footer.**
 
-It works on phones, tablets and desktops, and includes a mobile menu, gentle scroll animations (turned off for visitors who prefer reduced motion) and keyboard-friendly navigation.
+Two more sections are already built but hidden until there's real content for them: **Recent work** (photos) and **Reviews**. See below.
 
 ## Files
 
 ```
 index.html          The page itself (all the text lives here)
 css/styles.css      Colours, fonts and layout
-js/main.js          Mobile menu, scroll effects and the contact form
+js/main.js          Mobile menu and the enquiry form
 images/favicon.svg  Browser tab icon
-images/work/        Gallery pictures for the "Our Work" section
+images/work/        Put photos of finished jobs here
 ```
 
 ## Previewing it
 
-Double-click `index.html` to open it in a browser. That's all you need.
+Double-click `index.html` to open it in a browser.
 
 ## ⚠️ Before going live: replace the placeholder details
 
 The contact details are placeholders. Search `index.html` for each one and replace **every** occurrence:
 
-| Placeholder | Replace with | Where it appears |
-| --- | --- | --- |
-| `07700 900123` | The real phone number as it should be shown | Call-to-action band, contact section, footer |
-| `+447700900123` | The same number in international format for `tel:` links (e.g. `07123 456789` → `+447123456789`) | Every `tel:` link |
-| `hello@example.com` | The real email address | Contact section, footer, and the form's `data-email="…"` attribute |
-| `Your Town & surrounding areas` | The towns or areas covered | Contact section and footer (written `Your Town &amp; surrounding areas` in the HTML) |
-| `Mon–Fri 8am–6pm · Sat 8am–1pm` | The real working hours | Contact section |
+| Placeholder | Replace with |
+| --- | --- |
+| `07700 900123` | The real phone number as it should be shown |
+| `+447700900123` | The same number in international format for the `tel:` links (e.g. `07123 456789` → `+447123456789`) |
+| `hello@example.com` | The real email address (also in the form's `data-email="…"`) |
+| `Your Town` | The town he's based in / the areas covered |
+| `Monday to Friday, 8am–6pm` / `Saturday, 8am–1pm` | The real working hours |
 
-`07700 900123` is a fictional number reserved by Ofcom for TV and film, so nobody will receive calls by mistake while it's still in place.
+`07700 900123` is a fictional number reserved by Ofcom for TV and film, so nobody gets calls by mistake while it's still in place.
 
-Also check that these statements are true for the business, and edit or remove any that aren't:
-- "Free, no-obligation quotes" (hero, badges, How It Works and the call-to-action band)
-- "We take the garden waste away" (About section)
-- The list of services (remove any that aren't offered, or add extras such as garden clearance)
+Also check these against what the business actually does, and edit or remove anything that isn't right:
+- The eight services in "What we do" (and the matching options in the form's drop-down)
+- "Free, no-obligation quotes", "Garden waste taken away" and "Small jobs welcome" in the top section
+- The "About us" text. It's written to be general. It reads much better in his own words, e.g. *"I'm [name] and I started DSLandscaping Services in [year]…"*
 
-## Adding real photos to "Our Work"
+## Adding photos
 
-Real photos of finished jobs will make the biggest difference to the site.
+Real photos of his own work are what will make the site feel genuine. Phone photos are fine. Landscape (sideways) shots work best, and resizing them to about 1600px wide keeps the site quick to load.
 
-1. Put the photos in `images/work/`, e.g. `lawn.jpg`, `patio.jpg`. Landscape photos about 1200×900 px work best. Resize large phone photos first so the page stays quick to load.
-2. In `index.html`, find the "Our Work" section and change each `src`, for example `images/work/lawn.svg` to `images/work/lawn.jpg`.
-3. Update each `alt` text to describe the photo, e.g. `alt="Newly laid lawn in a back garden"`, and the caption under it if needed.
+### Recent work section
 
-Photos are cropped to a 4:3 shape automatically, so slightly different sizes are fine.
+1. Save photos of finished jobs in `images/work/` as `job-1.jpg`, `job-2.jpg`, `job-3.jpg` (add more by copying a `<figure>…</figure>` block).
+2. In `index.html`, find **RECENT WORK** and update each photo's `alt` description and caption.
+3. Delete the two lines marked `HIDDEN: delete this line to show Recent Work`.
+4. Add `<li><a href="#work">Our Work</a></li>` to the menu near the top of `index.html`.
 
-## How the contact form works
+### Big photo behind the heading
 
-The site has no server, so when a visitor presses **Send My Enquiry**, their own email app opens with the enquiry already written out and addressed to the business email. They then just press send.
+1. Save a good wide garden photo as `images/hero.jpg`.
+2. In `css/styles.css`, find the `.hero` section, copy the `background: …` line from the note there, and paste it underneath the note.
 
-To have enquiries sent straight to the inbox without opening the visitor's email app, use a free form service such as [Formspree](https://formspree.io):
+## Adding reviews
+
+Use real reviews only, e.g. copied from Facebook or Google with the customer's permission.
+
+1. In `index.html`, find **REVIEWS**.
+2. Replace the example text with a real review and the customer's first name and town. Copy the `<blockquote>…</blockquote>` block for each extra review.
+3. Delete the two lines marked `HIDDEN: delete this line to show Reviews`.
+
+## How the enquiry form works
+
+The site has no server, so when someone presses **Send enquiry**, their own email app opens with the enquiry written out and addressed to the business email. They then just press send.
+
+To have enquiries sent straight to the inbox instead, use a free form service such as [Formspree](https://formspree.io):
 
 1. Sign up and create a form to get a URL like `https://formspree.io/f/abcdwxyz`.
 2. In `index.html`, add `action` and `method` to the form's opening tag:
    ```html
-   <form class="contact-form reveal" id="contact-form" action="https://formspree.io/f/abcdwxyz" method="POST" data-email="hello@example.com" novalidate>
+   <form class="contact-form" id="contact-form" action="https://formspree.io/f/abcdwxyz" method="POST" data-email="hello@example.com" novalidate>
    ```
 
-That's it. The fields are still checked before sending, and the form then submits to Formspree instead of opening an email app.
+The fields are still checked before sending.
 
 ## Changing the colours
 
-All colours are defined once at the top of `css/styles.css` under `:root`. The main green is `--green-700` (`#256b40`) and the light accent is `--lime` (`#b5e06a`). Change those values and the whole site updates.
+The colours are set once at the top of `css/styles.css` under `:root`. `--green` is the main green and `--green-dark` is the menu bar and footer.
 
 ## Putting it online (free options)
 

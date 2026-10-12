@@ -31,65 +31,6 @@
     });
   }
 
-  /* ---------- Scroll effects ----------
-     Header shadow, active nav link and reveal-on-scroll all run from one
-     throttled scroll handler, measured against the page directly, so content
-     always appears once it has been scrolled to. */
-  var header = document.querySelector(".site-header");
-  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".site-nav li a"));
-  var sections = navLinks
-    .map(function (link) { return document.querySelector(link.getAttribute("href")); })
-    .filter(Boolean);
-  var pendingReveals = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
-
-  pendingReveals.forEach(function (el, i) {
-    // Small stagger for items that sit side by side in a grid
-    el.style.transitionDelay = (i % 3) * 80 + "ms";
-  });
-
-  function updateActiveLink() {
-    var marker = window.innerHeight * 0.4;
-    var current = null;
-    sections.forEach(function (section) {
-      if (section.getBoundingClientRect().top <= marker) current = section;
-    });
-    // Back at the top of the page (in the hero), no section is active
-    navLinks.forEach(function (link) {
-      link.classList.toggle("is-active", Boolean(current) && link.getAttribute("href") === "#" + current.id);
-    });
-  }
-
-  function revealInView() {
-    var limit = window.innerHeight * 0.92;
-    pendingReveals = pendingReveals.filter(function (el) {
-      if (el.getBoundingClientRect().top < limit) {
-        el.classList.add("is-visible");
-        return false;
-      }
-      return true;
-    });
-  }
-
-  var ticking = false;
-  function onScroll() {
-    if (ticking) return;
-    ticking = true;
-    window.requestAnimationFrame(function () {
-      header.classList.toggle("is-scrolled", window.scrollY > 8);
-      updateActiveLink();
-      revealInView();
-      ticking = false;
-    });
-  }
-
-  window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", onScroll);
-  window.addEventListener("load", onScroll);
-  // Run straight away so anything already on screen is shown without waiting
-  header.classList.toggle("is-scrolled", window.scrollY > 8);
-  updateActiveLink();
-  revealInView();
-
   /* ---------- Footer year ---------- */
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
@@ -138,8 +79,13 @@
     var fields = Array.prototype.slice.call(form.querySelectorAll("input, textarea"));
 
     fields.forEach(function (field) {
+      // Clear an error as soon as it's fixed, while typing. Doing it on blur
+      // instead would move the Send button just as it's being clicked.
+      field.addEventListener("input", function () {
+        if (field.closest(".field").classList.contains("has-error")) validate(field);
+      });
       field.addEventListener("blur", function () {
-        if (field.value.trim() || field.closest(".field").classList.contains("has-error")) validate(field);
+        if (field.value.trim()) validate(field);
       });
     });
 
