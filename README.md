@@ -1,19 +1,19 @@
 # DSLandscaping Services — Website
 
-The website for **DSLandscaping Services**, landscaping and garden maintenance.
+The website for **DSLandscaping Services**: block paving, driveways and patios, plus paths and steps, fencing and landscaping.
 
 It's plain HTML, CSS and JavaScript. There's no build step and nothing to install, so it can be hosted almost anywhere for free.
 
 ## What's on the site
 
 - **Header:** sits over the main photo, then turns solid green as you scroll. The menu underlines whichever section you're in. On phones, the menu opens as a full-screen panel.
-- **Main section:** full-screen garden photo with the headline "Gardens worth *coming home* to."
+- **Main section:** full-screen photo of a block paved driveway with the headline "Driveways worth *coming home* to."
 - **Services ticker:** the service names drifting slowly across the page.
-- **About us:** two overlapping photos, a short introduction and three promises (free quotes, reliable, tidy).
-- **Our services:** six services, each with a photo and an **Enquire** link that jumps to the form with that service already picked.
+- **About us:** two overlapping photos, a short introduction about doing the groundwork properly, and three promises (free quotes, built to last, tidy).
+- **Our services:** Block Paving, Driveways, Patios, Paths & Steps, Fencing & Gates, and Landscaping & Turfing. Each has a photo and an **Enquire** link that jumps to the form with that service already picked.
 - **Statement band:** wide photo with a gentle parallax effect, a short quote and a "Book a free visit" button.
 - **How it works:** three steps.
-- **FAQs:** six common questions with answers that open and close.
+- **FAQs:** six common questions (quotes, how long a driveway takes, planning permission, looking after block paving, waste, areas covered) with answers that open and close.
 - **Contact:** phone, WhatsApp, email, areas covered, hours and an enquiry form.
 - **Footer.**
 - **On phones:** a "Call us / Free quote" bar slides up from the bottom once you scroll past the main photo, and tucks away again at the contact section.
@@ -49,11 +49,11 @@ Before the site goes live properly, swap them for real photos:
 
 | Photo on the site | Where it is in `index.html` |
 | --- | --- |
-| Main garden photo (top of the page) | `class="hero-img"` |
-| Garden tools and lawn edge | `class="about-photo-main"` and `class="about-photo-small"` |
+| Block paved driveway (top of the page) | `class="hero-img"` |
+| Paving tools, and a driveway base ready for paving | `class="about-photo-main"` and `class="about-photo-small"` |
 | Six service photos | `class="service-img"` blocks, in order |
 | Stone path at dusk | `class="band-img"` |
-| Garden gate | `class="faq-photo"` |
+| Block paved front path | `class="faq-photo"` |
 
 ## ⚠️ Before going live: replace the placeholder details
 
@@ -71,11 +71,11 @@ Search `index.html` for each one and replace **every** occurrence:
 `07700 900123` is a fictional number reserved by Ofcom for TV and film, so nobody gets calls by mistake while it's still in place.
 
 Also check these against what the business actually does, and edit anything that isn't right:
-- The six services (and the matching options in the form's drop-down; each **Enquire** link's `data-service` must match an option exactly)
+- The six services (and the matching options in the form's drop-down; each **Enquire** link's `data-service` must match an option exactly). If he does other work such as resin or tarmac driveways, walls or artificial grass, add it.
 - The service names in the ticker under the main photo
-- "Free, no-obligation quotes", "On time, every time" and "We clear up and take the waste away"
-- The FAQ answers
-- The About text. It reads best in his own words, e.g. *"I'm [name] and I started DSLandscaping Services in [year]…"*
+- "Free, no-obligation quotes", "Built on a solid base", "A solid base under every job" and "We clear up and take the waste away"
+- The About text about groundwork and drainage. It reads best in his own words, e.g. *"I'm [name] and I started DSLandscaping Services in [year]…"*
+- The FAQ answers, especially the driveway timescale. The planning permission answer describes the rules in **England**; if he works in Wales, Scotland or Northern Ireland, check the local rules and adjust it.
 
 ## Business details for Google
 
