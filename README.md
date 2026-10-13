@@ -1,6 +1,8 @@
 # DSLandscaping Services — Website
 
-The website for **DSLandscaping Services**: block paving, driveways and patios, plus paths and steps, fencing and landscaping.
+The website for **DSLandscaping Services**: block paving, driveways and patios, plus paths and steps, fencing and landscaping. 20 years of experience, *helping you transform outdoor spaces with confidence*.
+
+Phone: 07868 841 474 · Email: sales@dslandscapingservices.com
 
 It's plain HTML, CSS and JavaScript. There's no build step and nothing to install, so it can be hosted almost anywhere for free.
 
@@ -9,14 +11,19 @@ It's plain HTML, CSS and JavaScript. There's no build step and nothing to instal
 - **Header:** sits over the main photo, then turns solid green as you scroll. The menu underlines whichever section you're in. On phones, the menu opens as a full-screen panel.
 - **Main section:** full-screen photo of a block paved driveway with the headline "Driveways worth *coming home* to."
 - **Services ticker:** the service names drifting slowly across the page.
-- **About us:** two overlapping photos, a short introduction about doing the groundwork properly, and three promises (free quotes, built to last, tidy).
+- **About us:** two overlapping photos with a "20 years of experience" badge, a short introduction about doing the groundwork properly, and three promises (free quotes, built to last, tidy).
 - **Our services:** Block Paving, Driveways, Patios, Paths & Steps, Fencing & Gates, and Landscaping & Turfing. Each has a photo and an **Enquire** link that jumps to the form with that service already picked.
 - **Statement band:** wide photo with a gentle parallax effect, a short quote and a "Book a free visit" button.
 - **How it works:** three steps.
 - **FAQs:** six common questions (quotes, how long a driveway takes, planning permission, looking after block paving, waste, areas covered) with answers that open and close.
 - **Contact:** phone, WhatsApp, email, areas covered, hours and an enquiry form.
 - **Footer.**
-- **On phones:** a "Call us / Free quote" bar slides up from the bottom once you scroll past the main photo, and tucks away again at the contact section.
+- **On phones:**
+  - The main photo and statement band use portrait versions made for tall screens, which are also much smaller downloads.
+  - The services become a swipeable row with progress dots instead of a long list.
+  - A "Call us / Free quote" bar slides up from the bottom once you're past the main photo, and tucks away at the contact section, where big **Call** and **WhatsApp** buttons take over.
+  - Every button and link is at least 44px tall so it's easy to tap, the menu scrolls if the screen is short (e.g. a phone on its side), and the form brings up the right keyboard for each field.
+  - The parallax effect is switched off, and spacing is tighter so there's less scrolling.
 
 Sections fade gently into view as you scroll. For visitors whose device is set to reduce motion, the animations are switched off.
 
@@ -45,30 +52,27 @@ Before the site goes live properly, swap them for real photos:
 1. Take or pick photos of his own work. Phone photos are fine; wide landscape shots work best.
 2. Save them in `images/` as JPGs, resized to about 2000px wide for the big photos and 1200px for the rest.
 3. In `index.html`, find each `src="https://d8j0ntlcm91z4.cloudfront.net/..."` and change it to your file, e.g. `src="images/hero.jpg"`. Update the `alt` text to describe the new photo.
-4. Also update the main photo's address in the `<head>` (the `preload` line, `og:image`, and `"image"` in the business details) so they all point at the new main photo.
+4. Also update the main photo's address in the `<head>` (the two `preload` lines, `og:image`, and `"image"` in the business details) so they all point at the new main photo.
+5. The main photo and the stone path band each have a second, portrait photo for phones, in the `<source media="(max-width: 767px)" …>` line just above them. Point that at a portrait (upright) photo too, or delete the `<source …>` line to use the same photo on every screen.
 
 | Photo on the site | Where it is in `index.html` |
 | --- | --- |
-| Block paved driveway (top of the page) | `class="hero-img"` |
+| Block paved driveway (top of the page) | `class="hero-img"`, plus the phone version on the `<source>` line above it |
 | Paving tools, and a driveway base ready for paving | `class="about-photo-main"` and `class="about-photo-small"` |
 | Six service photos | `class="service-img"` blocks, in order |
-| Stone path at dusk | `class="band-img"` |
+| Stone path at dusk | `class="band-img"`, plus the phone version on the `<source>` line above it |
 | Block paved front path | `class="faq-photo"` |
 
-## ⚠️ Before going live: replace the placeholder details
+## ⚠️ Before going live: details still to fill in
 
-Search `index.html` for each one and replace **every** occurrence:
+The real phone number (07868 841 474) and email (sales@dslandscapingservices.com) are in place everywhere. These are still placeholders. Search `index.html` for each one and replace **every** occurrence:
 
 | Placeholder | Replace with |
 | --- | --- |
-| `07700 900123` | The real phone number as it should be shown |
-| `+447700900123` | The same number in international format for the `tel:` links (e.g. `07123 456789` → `+447123456789`) |
-| `447700900123` (in `wa.me/` links) | The same number without the `+`, for WhatsApp. If he doesn't use WhatsApp, delete the WhatsApp rows in the contact section and footer. |
-| `hello@example.com` | The real email address (also in the form's `data-email="…"`) |
 | `Your Town` | The town he's based in / the areas covered |
 | `Mon–Fri 8am–6pm · Sat 8am–1pm` and the footer hours | The real working hours (also in the business details in the `<head>`, written as `"08:00"` / `"18:00"`) |
 
-`07700 900123` is a fictional number reserved by Ofcom for TV and film, so nobody gets calls by mistake while it's still in place.
+**WhatsApp:** the site has WhatsApp links (`wa.me/447868841474`) for the same number. If he doesn't use WhatsApp on that number, delete the WhatsApp button and row in the contact section and the WhatsApp line in the footer.
 
 Also check these against what the business actually does, and edit anything that isn't right:
 - The six services (and the matching options in the form's drop-down; each **Enquire** link's `data-service` must match an option exactly). If he does other work such as resin or tarmac driveways, walls or artificial grass, add it.
@@ -79,7 +83,7 @@ Also check these against what the business actually does, and edit anything that
 
 ## Business details for Google
 
-The `<script type="application/ld+json">` block in the `<head>` tells Google the business name, phone, email, area and opening hours, which helps it show up properly in local searches. It uses the same placeholders as the page, so update it at the same time. Once the site is live, setting up a free **Google Business Profile** is the single best thing for being found locally.
+The `<script type="application/ld+json">` block in the `<head>` tells Google the business name, phone, email, area and opening hours, which helps it show up properly in local searches. The phone and email are already set; update the area and hours there at the same time as on the page. Once the site is live, setting up a free **Google Business Profile** is the single best thing for being found locally.
 
 ## Showing his own work: Recent projects section
 
@@ -105,7 +109,7 @@ To have enquiries sent straight to the inbox instead, use a free form service su
 1. Sign up and create a form to get a URL like `https://formspree.io/f/abcdwxyz`.
 2. In `index.html`, add `action` and `method` to the form's opening tag:
    ```html
-   <form class="contact-form" id="contact-form" action="https://formspree.io/f/abcdwxyz" method="POST" data-email="hello@example.com" novalidate>
+   <form class="contact-form" id="contact-form" action="https://formspree.io/f/abcdwxyz" method="POST" data-email="sales@dslandscapingservices.com" novalidate>
    ```
 
 The fields are still checked before sending.

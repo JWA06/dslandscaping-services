@@ -5,6 +5,8 @@
   document.documentElement.classList.add("js");
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Parallax is for larger screens only; on phones it costs smoothness for little gain
+  var wideScreen = window.matchMedia("(min-width: 900px)");
 
   /* ---------- Mobile navigation (full-screen panel) ---------- */
   var toggle = document.querySelector(".nav-toggle");
@@ -104,7 +106,11 @@
   }
 
   function updateParallax() {
-    if (reduceMotion || !band || !bandImg) return;
+    if (!band || !bandImg) return;
+    if (reduceMotion || !wideScreen.matches) {
+      bandImg.style.transform = "";
+      return;
+    }
     var rect = band.getBoundingClientRect();
     if (rect.bottom < 0 || rect.top > window.innerHeight) return;
     // -1 when the band enters at the bottom, 1 when it leaves at the top
@@ -133,6 +139,37 @@
   header.classList.toggle("is-solid", window.scrollY > 40);
   revealInView();
   updateActiveLink();
+
+  /* ---------- Swipeable services on phones: progress dots ---------- */
+  var serviceGrid = document.querySelector(".service-grid");
+  var dotsBox = document.querySelector(".service-dots");
+
+  if (serviceGrid && dotsBox) {
+    var cards = serviceGrid.querySelectorAll(".service");
+    var dots = Array.prototype.map.call(cards, function () {
+      return dotsBox.appendChild(document.createElement("span"));
+    });
+    var dotsTicking = false;
+
+    var updateDots = function () {
+      dotsTicking = false;
+      var step = cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : 1;
+      var maxScroll = serviceGrid.scrollWidth - serviceGrid.clientWidth;
+      // At the far end, the last card may not reach the left edge, so mark it explicitly
+      var index = serviceGrid.scrollLeft >= maxScroll - 2
+        ? cards.length - 1
+        : Math.round(serviceGrid.scrollLeft / step);
+      dots.forEach(function (dot, i) { dot.classList.toggle("is-active", i === index); });
+    };
+
+    serviceGrid.addEventListener("scroll", function () {
+      if (dotsTicking) return;
+      dotsTicking = true;
+      window.requestAnimationFrame(updateDots);
+    }, { passive: true });
+    window.addEventListener("resize", updateDots);
+    updateDots();
+  }
 
   /* ---------- Footer year ---------- */
   var year = document.getElementById("year");
