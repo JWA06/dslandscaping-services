@@ -1,8 +1,8 @@
 # DSLandscaping Services — Website
 
-The website for **DSLandscaping Services**: block paving, driveways and patios, plus paths and steps, fencing and landscaping. 20 years of experience, *helping you transform outdoor spaces with confidence*.
+The website for **DSLandscaping Services**, Manchester: block paving, tarmac, resin, porcelain, paving slabs, fencing, and artificial and real grass. 20 years of experience, *helping you transform outdoor spaces with confidence*.
 
-Phone: 07868 841 474 · Email: sales@dslandscapingservices.com
+Mobile: 07868 841 474 · Email: sales@dslandscapingservices.com · Hours: Monday to Friday, 8am–7pm
 
 It's plain HTML, CSS and JavaScript. There's no build step and nothing to install, so it can be hosted almost anywhere for free.
 
@@ -12,10 +12,11 @@ It's plain HTML, CSS and JavaScript. There's no build step and nothing to instal
 - **Main section:** full-screen photo of a block paved driveway with the headline "Driveways worth *coming home* to."
 - **Services ticker:** the service names drifting slowly across the page.
 - **About us:** two overlapping photos with a "20 years of experience" badge, a short introduction about doing the groundwork properly, and three promises (free quotes, built to last, tidy).
-- **Our services:** Block Paving, Driveways, Patios, Paths & Steps, Fencing & Gates, and Landscaping & Turfing. Each has a photo and an **Enquire** link that jumps to the form with that service already picked.
+- **Our services:** Block Paving, Tarmac, Resin, Porcelain, Paving Slabs, Fencing, Artificial Grass, and Real Grass & Turfing. Each has a photo and an **Enquire** link that jumps to the form with that service already picked.
 - **Statement band:** wide photo with a gentle parallax effect, a short quote and a "Book a free visit" button.
 - **How it works:** three steps.
-- **FAQs:** six common questions (quotes, how long a driveway takes, planning permission, looking after block paving, waste, areas covered) with answers that open and close.
+- **Reviews:** approved customer reviews with star ratings, buttons to review the business on Google or read its Google reviews, and a **Write a review** form. See *Reviews* below.
+- **FAQs:** seven common questions (quotes, how long a driveway takes, block paving vs tarmac vs resin, planning permission, looking after block paving, waste, areas covered) with answers that open and close.
 - **Contact:** phone, WhatsApp, email, areas covered, hours and an enquiry form.
 - **Footer.**
 - **On phones:**
@@ -27,14 +28,14 @@ It's plain HTML, CSS and JavaScript. There's no build step and nothing to instal
 
 Sections fade gently into view as you scroll. For visitors whose device is set to reduce motion, the animations are switched off.
 
-Two more sections are already built but hidden until there's real content for them: **Recent projects** (photos of his own jobs) and **Reviews**. See below.
+One more section is already built but hidden until there's real content for it: **Recent projects** (photos of his own jobs). See below.
 
 ## Files
 
 ```
 index.html          The page itself (all the text lives here)
 css/styles.css      Colours, fonts and layout
-js/main.js          Header, menu, scroll effects and the enquiry form
+js/main.js          Header, menu, scroll effects, the enquiry form and reviews
 images/favicon.svg  Browser tab icon
 images/work/        Put photos of his finished jobs here
 ```
@@ -59,31 +60,29 @@ Before the site goes live properly, swap them for real photos:
 | --- | --- |
 | Block paved driveway (top of the page) | `class="hero-img"`, plus the phone version on the `<source>` line above it |
 | Paving tools, and a driveway base ready for paving | `class="about-photo-main"` and `class="about-photo-small"` |
-| Six service photos | `class="service-img"` blocks, in order |
+| Eight service photos | `class="service-img"` blocks, in order |
 | Stone path at dusk | `class="band-img"`, plus the phone version on the `<source>` line above it |
 | Block paved front path | `class="faq-photo"` |
 
-## ⚠️ Before going live: details still to fill in
+## ⚠️ Before going live: things to check
 
-The real phone number (07868 841 474) and email (sales@dslandscapingservices.com) are in place everywhere. These are still placeholders. Search `index.html` for each one and replace **every** occurrence:
+The real mobile number, email, area (Manchester) and hours (Monday to Friday, 8am–7pm) are in place everywhere.
 
-| Placeholder | Replace with |
-| --- | --- |
-| `Your Town` | The town he's based in / the areas covered |
-| `Mon–Fri 8am–6pm · Sat 8am–1pm` and the footer hours | The real working hours (also in the business details in the `<head>`, written as `"08:00"` / `"18:00"`) |
+**Landline:** not on the site yet. The number given (0161 327 469) has a digit missing: Manchester numbers are 0161 plus seven digits.
 
 **WhatsApp:** the site has WhatsApp links (`wa.me/447868841474`) for the same number. If he doesn't use WhatsApp on that number, delete the WhatsApp button and row in the contact section and the WhatsApp line in the footer.
 
 Also check these against what the business actually does, and edit anything that isn't right:
-- The six services (and the matching options in the form's drop-down; each **Enquire** link's `data-service` must match an option exactly). If he does other work such as resin or tarmac driveways, walls or artificial grass, add it.
+- The eight services (and the matching options in the form's drop-down; each **Enquire** link's `data-service` must match an option exactly)
 - The service names in the ticker under the main photo
-- "Free, no-obligation quotes", "Built on a solid base", "A solid base under every job" and "We clear up and take the waste away"
+- "Free, no-obligation quotes", "A solid base under every job" and "We clear up and take the waste away"
+- The resin description says it's resin-**bound** (which lets water drain through). If he lays resin-bonded surfaces instead, change that wording.
 - The About text about groundwork and drainage. It reads best in his own words, e.g. *"I'm [name] and I started DSLandscaping Services in [year]…"*
-- The FAQ answers, especially the driveway timescale. The planning permission answer describes the rules in **England**; if he works in Wales, Scotland or Northern Ireland, check the local rules and adjust it.
+- The FAQ answers, especially the driveway timescale and the block paving / tarmac / resin comparison. The planning permission answer describes the rules in England, which covers Manchester.
 
 ## Business details for Google
 
-The `<script type="application/ld+json">` block in the `<head>` tells Google the business name, phone, email, area and opening hours, which helps it show up properly in local searches. The phone and email are already set; update the area and hours there at the same time as on the page. Once the site is live, setting up a free **Google Business Profile** is the single best thing for being found locally.
+The `<script type="application/ld+json">` block in the `<head>` tells Google the business name, phone, email, area and opening hours, which helps it show up properly in local searches. The phone, email, area (Manchester) and hours are already set; if any of them change, update them there too. Once the site is live, setting up a free **Google Business Profile** is the single best thing for being found locally.
 
 ## Showing his own work: Recent projects section
 
@@ -92,13 +91,35 @@ The `<script type="application/ld+json">` block in the `<head>` tells Google the
 3. Delete the two lines marked `HIDDEN: delete this line to show Recent Work`.
 4. Add `<li><a href="#work">Our work</a></li>` to the menu near the top of `index.html`.
 
-## Adding reviews
+## Reviews
 
-Use real reviews only, e.g. copied from Facebook or Google with the customer's permission.
+Customers can leave a review in two ways:
 
-1. In `index.html`, find **REVIEWS**.
-2. Replace the example text with a real review and the customer's first name and town. Copy the `<blockquote>…</blockquote>` block for each extra review.
-3. Delete the two lines marked `HIDDEN: delete this line to show Reviews`.
+- **On Google**, using the *Review us on Google* button. It opens the business's Google profile (`https://share.google/QSsx8nniPcHwvpDzM`). Google reviews also help the business show up in local searches, so they're the best kind to ask for.
+- **On the website**, using the *Write a review* form (star rating, name, optional area, review).
+
+### Reviews from the website form
+
+The form uses [Netlify Forms](https://docs.netlify.com/forms/setup/), which is free for up to 100 submissions a month. New reviews are **not** published automatically, so spam or abusive posts never appear on the site.
+
+One-time setup in Netlify (after the site is deployed):
+1. Go to **Forms** for the site and turn on **form detection**, then redeploy (Deploys → Trigger deploy) so Netlify picks up the form.
+2. To get an email for every new review, go to **Site configuration → Notifications → Emails and webhooks → Form submission notifications**, add an email notification for the `review` form, and enter `sales@dslandscapingservices.com`.
+
+New reviews then appear under **Forms → review** in Netlify. Spam is filtered automatically.
+
+### Showing a review on the site
+
+Approved reviews live in a short list near the bottom of the Reviews section in `index.html` (search for **APPROVED REVIEWS**). Add each review to the list between the square brackets, newest first, separated by commas:
+
+```json
+[
+  { "name": "Sarah", "area": "Didsbury", "rating": 5, "text": "Brilliant job on our new driveway.", "source": "Website" },
+  { "name": "James", "rating": 5, "text": "Tidy, quick and great value.", "source": "Google" }
+]
+```
+
+`area` and `source` are optional. Use real reviews only; reviews copied from Google or elsewhere need the customer's permission. While the list is empty, the section invites customers to be the first to leave a review.
 
 ## How the enquiry form works
 

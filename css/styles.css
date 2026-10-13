@@ -136,7 +136,9 @@ a:hover { color: var(--forest); }
 
 .btn-cream { background: var(--cream); color: var(--forest); }
 .btn-outline-light { border-color: rgba(247, 243, 235, .6); color: var(--cream); }
+.btn-forest { background: var(--forest); color: var(--cream); }
 @media (hover: hover) {
+  .btn-forest:hover { background: var(--moss); color: var(--cream); }
   .btn-cream:hover { background: var(--gold); color: var(--forest-deep); }
   .btn-outline-light:hover { background: var(--cream); border-color: var(--cream); color: var(--forest); }
 }
@@ -617,7 +619,10 @@ a:hover { color: var(--forest); }
   gap: 64px 36px;
 }
 @media (min-width: 640px) { .service-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1000px) { .service-grid { grid-template-columns: repeat(3, 1fr); gap: 80px 40px; } }
+@media (min-width: 1100px) {
+  .service-grid { grid-template-columns: repeat(4, 1fr); gap: 72px 32px; }
+  .service h3 { font-size: 1.6rem; }
+}
 
 /* position: relative keeps each card's screen-reader text inside the card,
    so it can't stretch the page sideways in the swipeable row on phones */
@@ -743,14 +748,51 @@ a:hover { color: var(--forest); }
 @media (min-width: 640px) { .work-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1000px) { .work-grid { grid-template-columns: repeat(3, 1fr); } }
 
-/* ---------- Reviews (shown once real reviews are added) ---------- */
-.reviews { display: grid; gap: 40px; }
-@media (min-width: 900px) { .reviews { grid-template-columns: repeat(3, 1fr); } }
-.review { margin: 0; padding-top: 28px; border-top: 1px solid var(--line); }
-.review p {
+/* ---------- Reviews ---------- */
+.reviews-section { background: var(--stone); }
+.section-top-text p { margin-bottom: 24px; }
+.review-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 32px;
+}
+.review-links .link-arrow { color: var(--forest); }
+
+.reviews-grid { display: grid; gap: 56px; align-items: start; }
+@media (min-width: 900px) {
+  .reviews-grid { grid-template-columns: 1.2fr 1fr; gap: 80px; }
+}
+
+.reviews-empty {
+  padding: 36px 0 0;
+  border-top: 1px solid var(--line);
+}
+.reviews-empty-title {
+  margin-bottom: .4em;
   font-family: var(--serif);
   font-style: italic;
-  font-size: 1.5rem;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  line-height: 1.15;
+  color: var(--forest);
+}
+.reviews-empty p:last-child { max-width: 30em; color: var(--muted); }
+
+.reviews-list { display: grid; gap: 36px; }
+.reviews-list:empty { display: none; }
+.review { margin: 0; padding-top: 26px; border-top: 1px solid var(--line); }
+.review-stars {
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+  letter-spacing: .18em;
+  color: var(--gold);
+}
+.review-stars .off { color: rgba(30, 49, 37, .2); }
+.review p {
+  margin-bottom: 14px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.45rem;
   line-height: 1.35;
   color: var(--forest);
 }
@@ -762,8 +804,83 @@ a:hover { color: var(--forest); }
   color: var(--muted);
 }
 
+/* Review form: light version of the contact form fields */
+.review-form {
+  padding: 28px 22px;
+  background: var(--cream);
+  border: 1px solid var(--line);
+}
+@media (min-width: 600px) { .review-form { padding: 36px; } }
+.review-form h3 { margin-bottom: .8em; }
+.review-form .field label,
+.review-form legend {
+  color: var(--moss);
+}
+.review-form .field input,
+.review-form .field textarea {
+  border-bottom-color: rgba(30, 49, 37, .3);
+  color: var(--ink);
+  font-weight: 400;
+}
+.review-form .field textarea::placeholder,
+.review-form .field input::placeholder { color: rgba(30, 49, 37, .45); }
+.review-form .field input:focus,
+.review-form .field textarea:focus { border-bottom-color: var(--moss); }
+.review-form .field.has-error input,
+.review-form .field.has-error textarea { border-bottom-color: #b3261e; }
+.review-form .field-error { color: #b3261e; }
+.review-form .form-status { color: var(--moss); }
+.review-form .form-status a { color: var(--forest); }
+.review-form .btn { margin-top: 4px; }
+@media (max-width: 599px) { .review-form .btn { width: 100%; } }
+.review-note { margin: 14px 0 0; font-size: .9rem; color: var(--muted); }
+
+/* Star rating picker: radios in reverse order so the chosen star and those before it light up */
+.rating-field { margin: 0 0 26px; padding: 0; border: 0; min-width: 0; }
+.rating-field legend {
+  margin-bottom: 6px;
+  padding: 0;
+  font-size: .74rem;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+.star-input {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  gap: 2px;
+}
+.star-input input {
+  position: absolute;
+  opacity: 0;
+  width: 1px; height: 1px;
+}
+/* .rating-field raises specificity above the general form label styles */
+.rating-field .star-input label {
+  display: grid;
+  place-items: center;
+  width: 44px; height: 44px;
+  margin: 0;
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+  color: rgba(30, 49, 37, .22);
+  transition: color .15s, transform .15s;
+}
+.star-input label::before { content: "★"; }
+.star-input input:checked ~ label { color: var(--gold); }
+@media (hover: hover) {
+  .star-input:hover label { color: rgba(30, 49, 37, .22); }
+  .star-input label:hover,
+  .star-input label:hover ~ label { color: var(--gold); }
+}
+.star-input input:focus-visible + label { outline: 2px solid var(--gold); outline-offset: -4px; }
+.rating-field.has-error .star-input label { color: rgba(179, 38, 30, .35); }
+
 /* ---------- FAQs ---------- */
-.faq { background: var(--stone); }
+.faq { background: var(--cream); }
 .faq-grid { display: grid; gap: 56px; align-items: start; }
 @media (min-width: 900px) {
   .faq-grid { grid-template-columns: 1fr 1.35fr; gap: 96px; }

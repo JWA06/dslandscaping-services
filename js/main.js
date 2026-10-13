@@ -274,4 +274,141 @@
       status.textContent = "Thanks! Your email app should now open with your enquiry ready to send.";
     });
   }
+
+  /* ---------- Reviews ----------
+     Approved reviews live in the JSON list in index.html (id="reviews-data").
+     New reviews from the form are sent to Netlify Forms for checking first. */
+  var reviewsData = document.getElementById("reviews-data");
+  var reviewsList = document.getElementById("reviews-list");
+  var reviewsEmpty = document.getElementById("reviews-empty");
+
+  function renderReviews() {
+    if (!reviewsData || !reviewsList) return;
+    var reviews;
+    try {
+      reviews = JSON.parse(reviewsData.textContent);
+    } catch (err) {
+      return;
+    }
+    if (!Array.isArray(reviews)) return;
+    reviews = reviews.filter(function (r) { return r && r.name && r.text; });
+    if (!reviews.length) return;
+
+    reviews.forEach(function (r) {
+      var item = document.createElement("blockquote");
+      item.className = "review";
+
+      var rating = Math.max(0, Math.min(5, Math.round(Number(r.rating) || 0)));
+      if (rating) {
+        var stars = document.createElement("div");
+        stars.className = "review-stars";
+        stars.setAttribute("role", "img");
+        stars.setAttribute("aria-label", "Rated " + rating + " out of 5");
+        stars.textContent = new Array(rating + 1).join("★");
+        if (rating < 5) {
+          var off = document.createElement("span");
+          off.className = "off";
+          off.textContent = new Array(5 - rating + 1).join("★");
+          stars.appendChild(off);
+        }
+        item.appendChild(stars);
+      }
+
+      var text = document.createElement("p");
+      text.textContent = r.text;
+      item.appendChild(text);
+
+      var by = document.createElement("footer");
+      by.textContent = [r.name, r.area, r.source && "via " + r.source].filter(Boolean).join(" · ");
+      item.appendChild(by);
+
+      reviewsList.appendChild(item);
+    });
+    if (reviewsEmpty) reviewsEmpty.hidden = true;
+  }
+  renderReviews();
+
+  var reviewForm = document.getElementById("review-form");
+  var reviewStatus = document.getElementById("review-status");
+
+  if (reviewForm) {
+    var ratingField = document.getElementById("rating-field");
+    var ratingInputs = reviewForm.querySelectorAll('input[name="rating"]');
+    var reviewFields = [document.getElementById("review-name"), document.getElementById("review-text")];
+    var businessEmail = (form && form.dataset.email) || "sales@dslandscapingservices.com";
+
+    var validateRating = function () {
+      var existing = ratingField.querySelector(".field-error");
+      if (existing) existing.remove();
+      var chosen = Array.prototype.some.call(ratingInputs, function (input) { return input.checked; });
+      ratingField.classList.toggle("has-error", !chosen);
+      if (chosen) {
+        ratingField.removeAttribute("aria-describedby");
+      } else {
+        var error = document.createElement("span");
+        error.className = "field-error";
+        error.id = "rating-error";
+        error.textContent = "Please choose a star rating.";
+        ratingField.appendChild(error);
+        ratingField.setAttribute("aria-describedby", error.id);
+      }
+      return chosen;
+    };
+
+    Array.prototype.forEach.call(ratingInputs, function (input) {
+      input.addEventListener("change", function () {
+        if (ratingField.classList.contains("has-error")) validateRating();
+      });
+    });
+    reviewFields.forEach(function (field) {
+      field.addEventListener("input", function () {
+        if (field.closest(".field").classList.contains("has-error")) validate(field);
+      });
+      field.addEventListener("blur", function () {
+        if (field.value.trim()) validate(field);
+      });
+    });
+
+    reviewForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      var firstInvalid = validateRating() ? null : ratingInputs[0];
+      reviewFields.forEach(function (field) {
+        if (!validate(field) && !firstInvalid) firstInvalid = field;
+      });
+      if (firstInvalid) {
+        firstInvalid.focus();
+        reviewStatus.textContent = "";
+        return;
+      }
+
+      var button = reviewForm.querySelector('button[type="submit"]');
+      button.disabled = true;
+      reviewStatus.textContent = "Sending…";
+
+      // Netlify Forms accepts the review when it's posted to the site
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(new FormData(reviewForm)).toString()
+      })
+        .then(function (response) {
+          if (!response.ok) throw new Error("Status " + response.status);
+          reviewForm.reset();
+          reviewStatus.textContent = "Thank you! Your review has been sent and will appear here once it’s been checked.";
+        })
+        .catch(function () {
+          reviewStatus.textContent = "Sorry, your review couldn’t be sent just now. Please try again, or email it to ";
+          var link = document.createElement("a");
+          link.href = "mailto:" + businessEmail + "?subject=" + encodeURIComponent("Review");
+          link.textContent = businessEmail;
+          reviewStatus.appendChild(link);
+          reviewStatus.appendChild(document.createTextNode("."));
+        })
+        .then(function () {
+          button.disabled = false;
+        });
+    });
+  }
+
 })();
