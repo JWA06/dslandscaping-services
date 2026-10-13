@@ -118,9 +118,22 @@ The fields are still checked before sending.
 
 The colours are set once at the top of `css/styles.css` under `:root`: `--forest` (main green), `--cream`, `--stone` and `--gold` (accents). Headings use Cormorant Garamond and body text uses Jost, both from Google Fonts. The italic words in headings are wrapped in `<em>…</em>`.
 
-## Putting it online (free options)
+## Putting it online with Netlify
 
-- **GitHub Pages:** in this repository on GitHub, open **Settings → Pages**, choose **Deploy from a branch**, pick the branch and the `/ (root)` folder, then save. The site will appear at `https://<username>.github.io/dslandscaping-services/`.
-- **Netlify** or **Cloudflare Pages:** drag the project folder into their dashboard, or connect this repository.
+The site is set up for [Netlify](https://www.netlify.com) (free plan). `netlify.toml` already tells Netlify there's no build step and to publish this folder, so there's nothing to configure.
 
-Any of these can use a custom domain (e.g. `dslandscaping.co.uk`) once one has been bought.
+1. Log in at [app.netlify.com](https://app.netlify.com) (signing in with GitHub is easiest).
+2. Choose **Add new site** (or **Add new project**) → **Import an existing project** → **GitHub**, and allow Netlify to access the `dslandscaping-services` repository.
+3. Pick the repository. Leave the branch as it is (`claude/dslandscaping-website-duavmn`), leave the build command empty, and leave the publish directory as `.`.
+4. Click **Deploy**. After a minute the site is live at an address like `random-name-123.netlify.app`.
+5. To tidy the address, go to **Site configuration → Change site name**, e.g. `dslandscaping` → `dslandscaping.netlify.app`.
+
+From then on, every change pushed to that branch goes live automatically.
+
+### Using the dslandscapingservices.com domain
+
+In Netlify, open **Domain management → Add a domain** and enter `dslandscapingservices.com`. Netlify then shows the DNS records to add.
+
+⚠️ The business email (`sales@dslandscapingservices.com`) runs on this domain. The safest option is to **keep the domain's DNS where it is** and just add the records Netlify asks for at the current domain provider. If you move the domain's nameservers to Netlify DNS instead, copy the existing email (MX) records across first, or email will stop working.
+
+Netlify adds a free HTTPS certificate automatically once the domain points at it.

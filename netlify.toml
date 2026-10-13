@@ -1,0 +1,14 @@
+# Netlify settings for the DSLandscaping Services website.
+# It's a plain static site: there's no build step, Netlify just publishes this folder.
+
+[build]
+  publish = "."
+
+# Standard security headers on every page
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
