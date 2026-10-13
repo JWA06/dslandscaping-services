@@ -10,14 +10,35 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="DSLandscaping Services">
   <meta property="og:description" content="Landscaping and garden maintenance. Request a free, no-obligation quote.">
+  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3CLac0lCoz0J6DoxCOKYeE8ZX6J/hf_20261012_112457_7760e2da-8f18-4dfe-9e87-918988e92ce5.png">
 
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 
+  <link rel="preconnect" href="https://d8j0ntlcm91z4.cloudfront.net">
+  <link rel="preload" as="image" fetchpriority="high" href="https://d8j0ntlcm91z4.cloudfront.net/user_3CLac0lCoz0J6DoxCOKYeE8ZX6J/hf_20261012_112457_7760e2da-8f18-4dfe-9e87-918988e92ce5.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Business details for Google. Update these along with the placeholders on the page. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "DSLandscaping Services",
+    "description": "Landscaping and garden maintenance: lawn care, hedge cutting, patios, fencing, planting and garden clearances.",
+    "telephone": "+447700900123",
+    "email": "hello@example.com",
+    "areaServed": "Your Town",
+    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_3CLac0lCoz0J6DoxCOKYeE8ZX6J/hf_20261012_112457_7760e2da-8f18-4dfe-9e87-918988e92ce5.png",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:00", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "13:00" }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -37,9 +58,10 @@
 
       <nav class="site-nav" id="site-nav" aria-label="Main">
         <ul class="nav-links">
-          <li><a href="#services">Services</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
           <li><a href="#process">How it works</a></li>
+          <li><a href="#faq">FAQs</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="nav-extra">
@@ -64,58 +86,75 @@
       <div class="hero-shade" aria-hidden="true"></div>
 
       <div class="container hero-content">
-        <p class="label label-light">Landscaping &amp; Garden Maintenance</p>
-        <h1>Gardens worth coming home to.</h1>
-        <p class="hero-lead">
+        <p class="label label-light hero-in">Landscaping &amp; Garden Maintenance</p>
+        <h1 class="hero-in">Gardens worth <em>coming home</em> to.</h1>
+        <p class="hero-lead hero-in">
           From regular garden care to complete makeovers, we look after outdoor spaces
           in Your Town and the surrounding area with real care and attention to detail.
         </p>
-        <div class="hero-actions">
+        <div class="hero-actions hero-in">
           <a class="btn btn-cream" href="#contact">Request a free quote</a>
           <a class="link-arrow link-arrow-light" href="#services">Explore our services</a>
         </div>
       </div>
 
-      <div class="container hero-strip">
-        <ul>
-          <li>Free, no-obligation quotes</li>
-          <li>Regular &amp; one-off visits</li>
-          <li>Your Town &amp; surrounding areas</li>
-        </ul>
+      <div class="container hero-strip-wrap">
+        <div class="hero-strip">
+          <ul>
+            <li>Free, no-obligation quotes</li>
+            <li>Regular &amp; one-off visits</li>
+            <li>Your Town &amp; surrounding areas</li>
+          </ul>
+          <a class="scroll-cue" href="#about" aria-label="Scroll to the next section"><span aria-hidden="true"></span></a>
+        </div>
       </div>
     </section>
+
+    <!-- Slow-moving list of services -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Garden Maintenance</span><span>Lawn Care &amp; Turfing</span><span>Hedge Cutting</span><span>Patios &amp; Paving</span><span>Fencing &amp; Gates</span><span>Planting &amp; Borders</span><span>Garden Clearances</span>
+        <span>Garden Maintenance</span><span>Lawn Care &amp; Turfing</span><span>Hedge Cutting</span><span>Patios &amp; Paving</span><span>Fencing &amp; Gates</span><span>Planting &amp; Borders</span><span>Garden Clearances</span>
+      </div>
+    </div>
 
     <!-- About -->
     <section class="section about" id="about">
       <div class="container about-grid">
-        <figure class="about-photo">
-          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3CLac0lCoz0J6DoxCOKYeE8ZX6J/hf_20261012_112458_c0b814ea-7059-449c-8e25-24cbb61661d5.png"
-               alt="Secateurs, a trowel, twine and gloves on a wooden potting bench" width="896" height="1120" loading="lazy">
-        </figure>
+        <div class="about-photos reveal">
+          <figure class="about-photo-main">
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3CLac0lCoz0J6DoxCOKYeE8ZX6J/hf_20261012_112458_c0b814ea-7059-449c-8e25-24cbb61661d5.png"
+                 alt="Secateurs, a trowel, twine and gloves on a wooden potting bench" width="896" height="1120" loading="lazy">
+          </figure>
+          <figure class="about-photo-small">
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3CLac0lCoz0J6DoxCOKYeE8ZX6J/hf_20261013_101152_49018bd3-11b7-4bcb-ae9b-fc334172f6b5.png"
+                 alt="A crisp lawn edge beside a gravel path and low box hedging" width="1168" height="880" loading="lazy">
+          </figure>
+        </div>
 
         <div class="about-copy">
-          <p class="label">About us</p>
-          <h2>Careful work, honest prices and gardens you’ll be proud of.</h2>
-          <p>
+          <p class="label reveal">About us</p>
+          <h2 class="reveal">Careful work, honest prices and gardens you’ll be <em>proud of</em>.</h2>
+          <p class="reveal">
             DSLandscaping Services is a local landscaping business looking after gardens of
             every size. Whether it’s a weekly tidy, a new lawn or a full redesign, every job
             gets the same attention to detail.
           </p>
-          <p>
+          <p class="reveal">
             We turn up when we say we will, explain everything clearly and leave your garden
             spotless when we’re done.
           </p>
 
           <ul class="promises">
-            <li>
+            <li class="reveal">
               <h3>Free quotes</h3>
               <p>No obligation and no pressure.</p>
             </li>
-            <li>
+            <li class="reveal">
               <h3>Reliable</h3>
               <p>On time, every time, and easy to reach.</p>
             </li>
-            <li>
+            <li class="reveal">
               <h3>Tidy</h3>
               <p>We clear up and take the waste away.</p>
             </li>
@@ -128,18 +167,18 @@
     <section class="section services" id="services">
       <div class="container">
         <div class="section-top">
-          <div>
+          <div class="reveal">
             <p class="label">Our services</p>
-            <h2>What we can do for your garden</h2>
+            <h2>What we can do for <em>your garden</em></h2>
           </div>
-          <p class="section-top-text">
+          <p class="section-top-text reveal">
             Everything from regular upkeep to bigger projects. We also take on garden
             clearances and smaller odd jobs, so if it’s not listed, <a href="#contact">just ask</a>.
           </p>
         </div>
 
         <div class="service-grid">
-          <article class="service">
+          <article class="service reveal">
             <div class="service-img">
               <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3CLac0lCoz0J6DoxCOKYeE8ZX6J/hf_20261012_112456_88d0f51a-def4-4ee6-811a-a84e52f984aa.png"
                    alt="A freshly edged lawn beside a weeded, mulched border" width="1168" height="880" loading="lazy">
@@ -147,9 +186,10 @@
             <span class="service-num">01</span>
             <h3>Garden Maintenance</h3>
             <p>Regular or one-off visits: weeding, pruning, borders and general upkeep to keep everything looking its best.</p>
+            <a class="service-link" href="#contact" data-service="Garden maintenance">Enquire<span class="visually-hidden"> about garden maintenance</span></a>
           </article>
 
-          <article class="service">
+          <article class="service reveal">
             <div class="service-img">
               <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3CLac0lCoz0J6DoxCOKYeE8ZX6J/hf_20261012_112455_7907c12c-13c4-49da-a8a3-0ff40fc2c5fc.png"
                    alt="A freshly mown, striped lawn with crisp edges" width="1168" height="880" loading="lazy">
@@ -157,9 +197,10 @@
             <span class="service-num">02</span>
             <h3>Lawn Care &amp; Turfing</h3>
             <p>Mowing, edging, feeding and scarifying, or a brand-new lawn laid on properly prepared ground.</p>
+            <a class="service-link" href="#contact" data-service="Lawn care &amp; turfing">Enquire<span class="visually-hidden"> about lawn care and turfing</span></a>
           </article>
 
-          <article class="service">
+          <article class="service reveal">
             <div class="service-img">
               <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3CLac0lCoz0J6DoxCOKYeE8ZX6J/hf_20261012_112455_ec6eb17f-af11-483d-9b8b-2f3588f56abd.png"
                    alt="A neatly clipped yew hedge with a topiary ball in front" width="1168" height="880" loading="lazy">
@@ -167,9 +208,10 @@
             <span class="service-num">03</span>
             <h3>Hedge Cutting &amp; Shaping</h3>
             <p>Hedges and shrubs cut back, shaped and kept in check, with every clipping cleared away.</p>
+            <a class="service-link" href="#contact" data-service="Hedge cutting &amp; shaping">Enquire<span class="visually-hidden"> about hedge cutting and shaping</span></a>
           </article>
 
-          <article class="service">
+          <article class="service reveal">
             <div class="service-img">
               <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3CLac0lCoz0J6DoxCOKYeE8ZX6J/hf_20261012_112456_811acb97-792a-47cb-aa63-ee19299e6bec.png"
                    alt="A light grey porcelain patio with an outdoor dining set and planters" width="1168" height="880" loading="lazy">
@@ -177,9 +219,10 @@
             <span class="service-num">04</span>
             <h3>Patios &amp; Paving</h3>
             <p>Patios, paths and edging laid on a solid base, in natural stone or porcelain.</p>
+            <a class="service-link" href="#contact" data-service="Patios &amp; paving">Enquire<span class="visually-hidden"> about patios and paving</span></a>
           </article>
 
-          <article class="service">
+          <article class="service reveal">
             <div class="service-img">
               <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3CLac0lCoz0J6DoxCOKYeE8ZX6J/hf_20261012_112457_9d521260-8904-4674-928f-92f0d2a3eefd.png"
                    alt="A horizontal slatted timber fence with planting in front" width="1168" height="880" loading="lazy">
@@ -187,9 +230,10 @@
             <span class="service-num">05</span>
             <h3>Fencing &amp; Gates</h3>
             <p>New fence panels, posts and gates fitted to last, plus repairs to storm-damaged fencing.</p>
+            <a class="service-link" href="#contact" data-service="Fencing &amp; gates">Enquire<span class="visually-hidden"> about fencing and gates</span></a>
           </article>
 
-          <article class="service">
+          <article class="service reveal">
             <div class="service-img">
               <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3CLac0lCoz0J6DoxCOKYeE8ZX6J/hf_20261012_112455_0145b744-0883-448b-8690-0d7fbd0c7d6b.png"
                    alt="A summer border of lavender, salvias, alliums and grasses" width="1168" height="880" loading="lazy">
@@ -197,6 +241,7 @@
             <span class="service-num">06</span>
             <h3>Planting &amp; Borders</h3>
             <p>New beds and borders planned and planted, or tired ones lifted and given a fresh start.</p>
+            <a class="service-link" href="#contact" data-service="Planting &amp; borders">Enquire<span class="visually-hidden"> about planting and borders</span></a>
           </article>
         </div>
       </div>
@@ -208,7 +253,7 @@
            src="https://d8j0ntlcm91z4.cloudfront.net/user_3CLac0lCoz0J6DoxCOKYeE8ZX6J/hf_20261012_112458_05a12223-258f-4ff9-a9b1-7f571bcfffb1.png"
            alt="" width="2688" height="1152" loading="lazy">
       <div class="band-shade" aria-hidden="true"></div>
-      <div class="container band-content">
+      <div class="container band-content reveal">
         <p class="band-quote">
           Every garden is different. We’ll come and see yours, talk it through and give you
           a clear, honest quote.
@@ -221,24 +266,27 @@
     <section class="section process" id="process">
       <div class="container">
         <div class="section-top">
-          <div>
+          <div class="reveal">
             <p class="label">How it works</p>
-            <h2>Simple from start to finish</h2>
+            <h2>Simple from <em>start to finish</em></h2>
           </div>
+          <p class="section-top-text reveal">
+            No hard sell and no surprises. Just a clear plan, a fair price and a job done properly.
+          </p>
         </div>
 
         <ol class="steps">
-          <li>
+          <li class="reveal">
             <span class="step-num">01</span>
             <h3>Get in touch</h3>
             <p>Call, email or send the form below with a few details about your garden.</p>
           </li>
-          <li>
+          <li class="reveal">
             <span class="step-num">02</span>
             <h3>Free visit &amp; quote</h3>
             <p>We’ll come round, listen to what you’d like and give you a clear, no-obligation price.</p>
           </li>
-          <li>
+          <li class="reveal">
             <span class="step-num">03</span>
             <h3>The work</h3>
             <p>We arrive when agreed, do the job properly and leave everything clean and tidy.</p>
@@ -260,7 +308,7 @@
         <div class="section-top">
           <div>
             <p class="label">Our work</p>
-            <h2>Recent projects</h2>
+            <h2>Recent <em>projects</em></h2>
           </div>
         </div>
         <div class="work-grid">
@@ -292,7 +340,7 @@
         <div class="section-top">
           <div>
             <p class="label">Reviews</p>
-            <h2>What our customers say</h2>
+            <h2>What our <em>customers</em> say</h2>
           </div>
         </div>
         <div class="reviews">
@@ -305,12 +353,59 @@
     </section>
     HIDDEN: delete this line to show Reviews -->
 
+    <!-- FAQs -->
+    <section class="section faq" id="faq">
+      <div class="container faq-grid">
+        <div class="faq-intro">
+          <div class="reveal">
+            <p class="label">FAQs</p>
+            <h2>Questions, <em>answered</em></h2>
+            <p class="faq-intro-text">
+              Can’t see what you’re looking for? Give us a call on
+              <a href="tel:+447700900123">07700 900123</a> and we’ll be happy to help.
+            </p>
+          </div>
+          <figure class="faq-photo reveal">
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3CLac0lCoz0J6DoxCOKYeE8ZX6J/hf_20261013_101153_2d3772e7-d5f9-401f-b93a-f3f895dbfb31.png"
+                 alt="An open wooden gate leading onto a brick path through a cottage garden" width="896" height="1120" loading="lazy">
+          </figure>
+        </div>
+
+        <div class="faq-list reveal">
+          <details>
+            <summary>Do you charge for quotes?</summary>
+            <p>No. We’ll come and look at the garden, talk through what you’d like and give you a clear quote. There’s no obligation to go ahead.</p>
+          </details>
+          <details>
+            <summary>Do you take the garden waste away?</summary>
+            <p>Yes. Grass cuttings, hedge clippings and other green waste are cleared up and taken away, so you’re left with a tidy garden.</p>
+          </details>
+          <details>
+            <summary>Can you help with a one-off job?</summary>
+            <p>Of course. As well as regular visits, we take on one-off jobs like hedge cutting, garden clearances and tidy-ups before a sale or a special occasion.</p>
+          </details>
+          <details>
+            <summary>How often should my lawn be cut?</summary>
+            <p>During the main growing season, roughly April to October, most lawns look their best cut every week or two. We can set up regular visits so you never have to think about it.</p>
+          </details>
+          <details>
+            <summary>When is the best time to cut a hedge?</summary>
+            <p>Most garden hedges are best trimmed in late summer or early autumn. Birds nest in hedges between March and August, so we always check carefully before cutting during those months.</p>
+          </details>
+          <details>
+            <summary>Which areas do you cover?</summary>
+            <p>We’re based in Your Town and cover the surrounding area. If you’re not sure whether you’re in range, just ask.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- Contact -->
     <section class="section contact" id="contact">
       <div class="container contact-grid">
         <div class="contact-copy">
           <p class="label label-light">Contact</p>
-          <h2>Let’s talk about your garden</h2>
+          <h2>Let’s talk about <em>your garden</em></h2>
           <p>
             Tell us a little about what you have in mind and we’ll get back to you to arrange
             a free visit and quote.
@@ -320,6 +415,10 @@
             <div>
               <dt>Phone</dt>
               <dd><a href="tel:+447700900123">07700 900123</a></dd>
+            </div>
+            <div>
+              <dt>WhatsApp</dt>
+              <dd><a href="https://wa.me/447700900123" target="_blank" rel="noopener">Send us a message</a></dd>
             </div>
             <div>
               <dt>Email</dt>
@@ -347,9 +446,15 @@
               <input id="phone" name="phone" type="tel" autocomplete="tel">
             </div>
           </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" required>
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="postcode">Postcode <span class="optional">(optional)</span></label>
+              <input id="postcode" name="postcode" type="text" autocomplete="postal-code">
+            </div>
           </div>
           <div class="field">
             <label for="service">Service</label>
@@ -366,7 +471,7 @@
           </div>
           <div class="field">
             <label for="message">About your garden</label>
-            <textarea id="message" name="message" rows="4" required placeholder="What would you like done? Roughly where are you?"></textarea>
+            <textarea id="message" name="message" rows="4" required placeholder="What would you like done?"></textarea>
           </div>
           <button class="btn btn-cream" type="submit">Send enquiry</button>
           <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
@@ -387,9 +492,10 @@
       <nav class="footer-col" aria-label="Footer">
         <h3>Explore</h3>
         <ul>
-          <li><a href="#services">Services</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
           <li><a href="#process">How it works</a></li>
+          <li><a href="#faq">FAQs</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -397,7 +503,16 @@
         <h3>Get in touch</h3>
         <ul>
           <li><a href="tel:+447700900123">07700 900123</a></li>
+          <li><a href="https://wa.me/447700900123" target="_blank" rel="noopener">WhatsApp</a></li>
           <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Hours</h3>
+        <ul>
+          <li>Mon–Fri, 8am–6pm</li>
+          <li>Saturday, 8am–1pm</li>
+          <li>Sunday, closed</li>
         </ul>
       </div>
     </div>
@@ -408,6 +523,15 @@
       </div>
     </div>
   </footer>
+
+  <!-- Call / quote buttons pinned to the bottom of the screen on phones -->
+  <nav class="mobile-bar" aria-label="Quick contact">
+    <a href="tel:+447700900123">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+      Call us
+    </a>
+    <a href="#contact" class="mobile-bar-quote">Free quote</a>
+  </nav>
 
   <script src="js/main.js" defer></script>
 </body>
