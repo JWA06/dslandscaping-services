@@ -2,7 +2,7 @@
 
 The website for **DSLandscaping Services**, Manchester: block paving, tarmac, resin, porcelain, paving slabs, fencing, and artificial and real grass. 20 years of experience, *helping you transform outdoor spaces with confidence*.
 
-Mobile: 07868 841 474 · Email: sales@dslandscapingservices.com · Hours: Monday to Friday, 8am–7pm
+Mobile & WhatsApp: 07868 841 474 · Landline: 0161 327 4690 · Email: sales@dslandscapingservices.com · Hours: Monday to Friday, 8am–7pm
 
 It's plain HTML, CSS and JavaScript. There's no build step and nothing to install, so it can be hosted almost anywhere for free.
 
@@ -66,11 +66,7 @@ Before the site goes live properly, swap them for real photos:
 
 ## ⚠️ Before going live: things to check
 
-The real mobile number, email, area (Manchester) and hours (Monday to Friday, 8am–7pm) are in place everywhere.
-
-**Landline:** not on the site yet. The number given (0161 327 469) has a digit missing: Manchester numbers are 0161 plus seven digits.
-
-**WhatsApp:** the site has WhatsApp links (`wa.me/447868841474`) for the same number. If he doesn't use WhatsApp on that number, delete the WhatsApp button and row in the contact section and the WhatsApp line in the footer.
+The real mobile and WhatsApp number (07868 841 474), landline (0161 327 4690), email, area (Manchester) and hours (Monday to Friday, 8am–7pm) are in place everywhere.
 
 Also check these against what the business actually does, and edit anything that isn't right:
 - The eight services (and the matching options in the form's drop-down; each **Enquire** link's `data-service` must match an option exactly)
