@@ -39,6 +39,7 @@ js/main.js          Header, menu, scroll effects, the enquiry form and reviews
 images/favicon.svg  Browser tab icon
 images/work/        Put photos of his finished jobs here
 netlify.toml        Netlify settings (no build step, security headers)
+build.py            Packages the site into dist/ for drag-and-drop uploads to Netlify
 robots.txt          Tells search engines what to crawl and where the sitemap is
 sitemap.xml         The page address for Google
 ```
@@ -139,11 +140,13 @@ The site is set up for [Netlify](https://www.netlify.com) (free plan). `netlify.
 
 ### Option A: drag and drop (quickest)
 
-1. Unzip `dslandscaping-site.zip` (the website files on their own) so you have a folder.
-2. Log in at [app.netlify.com](https://app.netlify.com), go to **Sites** (or **Projects**), and drag the folder onto the **"drag and drop your site output folder here"** area. Netlify Drop at [app.netlify.com/drop](https://app.netlify.com/drop) works too.
-3. The site is live in a few seconds at an address like `random-name-123.netlify.app`. Rename it under **Site configuration → Change site name**.
+The site is currently live this way at **https://benevolent-pixie-d6f646.netlify.app**.
 
-With this option, each later change means dragging the updated folder onto the site's **Deploys** page again.
+1. Run `python3 build.py`. It creates `dist/dslandscaping-site.zip`, a version of the site made for uploading. Its `index.html` has the styles, script and icon built in, so it works even if only that one file is uploaded.
+2. Unzip it so you have a `dslandscaping-site` folder.
+3. In [app.netlify.com](https://app.netlify.com), open the site, go to **Deploys**, and drag the **whole folder** onto the drop area. Each upload replaces the live site at the same address.
+
+To create a new site instead, drag the folder onto the drop area under **Sites** (or **Projects**). You can rename a site under **Site configuration → Change site name**.
 
 ### Option B: connect GitHub (updates automatically)
 
@@ -163,16 +166,22 @@ The site is set up with **www.dslandscapingservices.com** as its main address (i
 
 **1. In Netlify** (once the site is deployed): open **Domain management → Add a domain**, enter `www.dslandscapingservices.com`, and confirm you own it. Netlify also lists `dslandscapingservices.com` and redirects it to the www address; if it doesn't appear, add it as a domain alias. Make sure **www.dslandscapingservices.com is the primary domain**. If you choose the bare domain as primary instead, change the `https://www.` addresses in `index.html`, `robots.txt` and `sitemap.xml` to match.
 
-**2. At the company the domain is registered with**, open the DNS settings for `dslandscapingservices.com` and set these two records (Netlify shows the exact values under **Domain management → Awaiting external DNS**; use those if they differ):
+**2. At the company the domain is registered with** (Hostinger, see below for its exact steps), open the DNS settings for `dslandscapingservices.com` and set these two records (Netlify shows the exact values under **Domain management → Awaiting external DNS**; use those if they differ):
 
 | Type | Name / Host | Value / Points to |
 | --- | --- | --- |
-| `CNAME` | `www` | your Netlify site address, e.g. `dslandscaping.netlify.app` |
+| `CNAME` | `www` | the Netlify site address: `benevolent-pixie-d6f646.netlify.app` (or its new name, if you rename the site) |
 | `A` | `@` (the bare domain) | `75.2.60.5` (Netlify's load balancer) |
 
 If there are already `A` or `CNAME` records for `@` or `www` (for example a parking page), edit or replace them. If there's an `AAAA` record for `@`, delete it.
 
 ⚠️ **Don't touch the email records.** The business email (`sales@dslandscapingservices.com`) runs on this domain. Leave every `MX` record, and any `TXT` records (SPF, DKIM, verification), exactly as they are. Keep the DNS with the current provider rather than moving the nameservers to Netlify; that way email can't be affected.
+
+**On Hostinger:** log in to hPanel → **Domains** → `dslandscapingservices.com` → **DNS / Nameservers** → **DNS records**.
+- Find the `A` record with name `@`. Edit it so it points to `75.2.60.5`. If there's more than one `A` record for `@`, delete the others.
+- Find the `CNAME` record with name `www`. Edit it so it points to `benevolent-pixie-d6f646.netlify.app`. If there's an `A` record for `www` instead, delete it and add the CNAME.
+- Delete any `AAAA` record for `@` or `www`.
+- Leave `MX`, `TXT` and everything else alone (that's the email). If there are `CAA` records, make sure one of them allows `letsencrypt.org`, which Netlify uses for HTTPS.
 
 **3. Wait.** DNS changes usually take effect within an hour but can take up to 48 hours. Netlify then adds a free HTTPS certificate automatically; you can check its progress under **Domain management → HTTPS**.
 
