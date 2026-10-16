@@ -38,6 +38,9 @@ css/styles.css      Colours, fonts and layout
 js/main.js          Header, menu, scroll effects, the enquiry form and reviews
 images/favicon.svg  Browser tab icon
 images/work/        Put photos of his finished jobs here
+netlify.toml        Netlify settings (no build step, security headers)
+robots.txt          Tells search engines what to crawl and where the sitemap is
+sitemap.xml         The page address for Google
 ```
 
 ## Previewing it
@@ -147,10 +150,23 @@ The site is set up for [Netlify](https://www.netlify.com) (free plan). `netlify.
 
 From then on, every change pushed to that branch goes live automatically.
 
-### Using the dslandscapingservices.com domain
+### Connecting dslandscapingservices.com
 
-In Netlify, open **Domain management → Add a domain** and enter `dslandscapingservices.com`. Netlify then shows the DNS records to add.
+The site is set up with **www.dslandscapingservices.com** as its main address (it's in the page's canonical link, the business details for Google, `robots.txt` and `sitemap.xml`). The bare `dslandscapingservices.com` redirects to it, so both work.
 
-⚠️ The business email (`sales@dslandscapingservices.com`) runs on this domain. The safest option is to **keep the domain's DNS where it is** and just add the records Netlify asks for at the current domain provider. If you move the domain's nameservers to Netlify DNS instead, copy the existing email (MX) records across first, or email will stop working.
+**1. In Netlify** (once the site is deployed): open **Domain management → Add a domain**, enter `www.dslandscapingservices.com`, and confirm you own it. Netlify also lists `dslandscapingservices.com` and redirects it to the www address; if it doesn't appear, add it as a domain alias. Make sure **www.dslandscapingservices.com is the primary domain**. If you choose the bare domain as primary instead, change the `https://www.` addresses in `index.html`, `robots.txt` and `sitemap.xml` to match.
 
-Netlify adds a free HTTPS certificate automatically once the domain points at it.
+**2. At the company the domain is registered with**, open the DNS settings for `dslandscapingservices.com` and set these two records (Netlify shows the exact values under **Domain management → Awaiting external DNS**; use those if they differ):
+
+| Type | Name / Host | Value / Points to |
+| --- | --- | --- |
+| `CNAME` | `www` | your Netlify site address, e.g. `dslandscaping.netlify.app` |
+| `A` | `@` (the bare domain) | `75.2.60.5` (Netlify's load balancer) |
+
+If there are already `A` or `CNAME` records for `@` or `www` (for example a parking page), edit or replace them. If there's an `AAAA` record for `@`, delete it.
+
+⚠️ **Don't touch the email records.** The business email (`sales@dslandscapingservices.com`) runs on this domain. Leave every `MX` record, and any `TXT` records (SPF, DKIM, verification), exactly as they are. Keep the DNS with the current provider rather than moving the nameservers to Netlify; that way email can't be affected.
+
+**3. Wait.** DNS changes usually take effect within an hour but can take up to 48 hours. Netlify then adds a free HTTPS certificate automatically; you can check its progress under **Domain management → HTTPS**.
+
+**4. Afterwards**, add the site to [Google Search Console](https://search.google.com/search-console) and submit `https://www.dslandscapingservices.com/sitemap.xml`, and add the website address to his Google Business Profile.
