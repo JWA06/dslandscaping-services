@@ -140,7 +140,7 @@ The site is set up for [Netlify](https://www.netlify.com) (free plan). `netlify.
 
 ### Option A: drag and drop (quickest)
 
-The site is currently live this way at **https://benevolent-pixie-d6f646.netlify.app**.
+The site is currently live this way at **https://spontaneous-nasturtium-edcc13.netlify.app**.
 
 1. Run `python3 build.py`. It creates `dist/dslandscaping-site.zip`, a version of the site made for uploading. Its `index.html` has the styles, script and icon built in, so it works even if only that one file is uploaded.
 2. Unzip it so you have a `dslandscaping-site` folder.
@@ -170,7 +170,7 @@ The site is set up with **www.dslandscapingservices.com** as its main address (i
 
 | Type | Name / Host | Value / Points to |
 | --- | --- | --- |
-| `CNAME` | `www` | the Netlify site address: `benevolent-pixie-d6f646.netlify.app` (or its new name, if you rename the site) |
+| `CNAME` | `www` | the Netlify site address: `spontaneous-nasturtium-edcc13.netlify.app` (or its new name, if you rename the site) |
 | `A` | `@` (the bare domain) | `75.2.60.5` (Netlify's load balancer) |
 
 If there are already `A` or `CNAME` records for `@` or `www` (for example a parking page), edit or replace them. If there's an `AAAA` record for `@`, delete it.
@@ -179,7 +179,7 @@ If there are already `A` or `CNAME` records for `@` or `www` (for example a park
 
 **On Hostinger:** log in to hPanel → **Domains** → `dslandscapingservices.com` → **DNS / Nameservers** → **DNS records**.
 - Find the `A` record with name `@`. Edit it so it points to `75.2.60.5`. If there's more than one `A` record for `@`, delete the others.
-- Find the `CNAME` record with name `www`. Edit it so it points to `benevolent-pixie-d6f646.netlify.app`. If there's an `A` record for `www` instead, delete it and add the CNAME.
+- Find the `CNAME` record with name `www`. Edit it so it points to `spontaneous-nasturtium-edcc13.netlify.app`. If there's an `A` record for `www` instead, delete it and add the CNAME.
 - Delete any `AAAA` record for `@` or `www`.
 - Leave `MX`, `TXT` and everything else alone (that's the email). If there are `CAA` records, make sure one of them allows `letsencrypt.org`, which Netlify uses for HTTPS.
 
