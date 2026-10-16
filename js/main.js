@@ -176,10 +176,10 @@
   if (year) year.textContent = new Date().getFullYear();
 
   /* ---------- Contact form ----------
-     Fields are checked before sending. If the form has an action attribute
-     (e.g. a Formspree URL) it then submits there as normal. Otherwise, with no
-     server behind the site, it opens the visitor's email app with their
-     enquiry filled in, ready to send to the form's data-email address. */
+     Fields are checked, then the enquiry is posted to Netlify Forms, which
+     stores it and emails it to the business. If that fails (e.g. the site
+     isn't on Netlify), the visitor gets a link to email it to the form's
+     data-email address instead, with everything already filled in. */
   var form = document.getElementById("contact-form");
   var status = document.getElementById("form-status");
   var serviceSelect = document.getElementById("service");
@@ -227,7 +227,7 @@
   }
 
   if (form) {
-    var fields = Array.prototype.slice.call(form.querySelectorAll("input, textarea"));
+    var fields = Array.prototype.slice.call(form.querySelectorAll(".field input, .field textarea"));
 
     fields.forEach(function (field) {
       // Clear an error as soon as it's fixed, while typing. Doing it on blur
@@ -252,26 +252,47 @@
         return;
       }
 
-      if (form.hasAttribute("action")) return;
       e.preventDefault();
 
       var data = new FormData(form);
-      var subject = "Quote request: " + data.get("service") + " (" + data.get("name") + ")";
-      var body = [
-        "Name: " + data.get("name"),
-        "Email: " + data.get("email"),
-        "Phone: " + (data.get("phone") || "Not given"),
-        "Postcode: " + (data.get("postcode") || "Not given"),
-        "Service: " + data.get("service"),
-        "",
-        data.get("message")
-      ].join("\n");
+      var button = form.querySelector('button[type="submit"]');
+      button.disabled = true;
+      status.textContent = "Sending…";
 
-      window.location.href = "mailto:" + form.dataset.email +
-        "?subject=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(body);
-
-      status.textContent = "Thanks! Your email app should now open with your enquiry ready to send.";
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(data).toString()
+      })
+        .then(function (response) {
+          if (!response.ok) throw new Error("Status " + response.status);
+          form.reset();
+          status.textContent = "Thanks, " + data.get("name") + "! Your enquiry has been sent and we’ll get back to you as soon as we can.";
+        })
+        .catch(function () {
+          // Couldn't send it from the page, so offer the visitor's email app instead
+          var subject = "Quote request: " + data.get("service") + " (" + data.get("name") + ")";
+          var body = [
+            "Name: " + data.get("name"),
+            "Email: " + data.get("email"),
+            "Phone: " + (data.get("phone") || "Not given"),
+            "Postcode: " + (data.get("postcode") || "Not given"),
+            "Service: " + data.get("service"),
+            "",
+            data.get("message")
+          ].join("\n");
+          var link = document.createElement("a");
+          link.href = "mailto:" + form.dataset.email +
+            "?subject=" + encodeURIComponent(subject) +
+            "&body=" + encodeURIComponent(body);
+          link.textContent = "email it to us instead";
+          status.textContent = "Sorry, your enquiry couldn’t be sent just now. Please try again, call us, or ";
+          status.appendChild(link);
+          status.appendChild(document.createTextNode(" (your enquiry is already filled in)."));
+        })
+        .then(function () {
+          button.disabled = false;
+        });
     });
   }
 
@@ -335,7 +356,7 @@
     var ratingField = document.getElementById("rating-field");
     var ratingInputs = reviewForm.querySelectorAll('input[name="rating"]');
     var reviewFields = [document.getElementById("review-name"), document.getElementById("review-text")];
-    var businessEmail = (form && form.dataset.email) || "sales@dslandscapingservices.com";
+    var businessEmail = (form && form.dataset.email) || "dslandscapes84@gmail.com";
 
     var validateRating = function () {
       var existing = ratingField.querySelector(".field-error");

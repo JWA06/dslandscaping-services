@@ -99,13 +99,7 @@ Customers can leave a review in two ways:
 
 ### Reviews from the website form
 
-The form uses [Netlify Forms](https://docs.netlify.com/forms/setup/), which is free for up to 100 submissions a month. New reviews are **not** published automatically, so spam or abusive posts never appear on the site.
-
-One-time setup in Netlify (after the site is deployed):
-1. Go to **Forms** for the site and turn on **form detection**, then redeploy (Deploys → Trigger deploy) so Netlify picks up the form.
-2. To get an email for every new review, go to **Site configuration → Notifications → Emails and webhooks → Form submission notifications**, add an email notification for the `review` form, and enter `sales@dslandscapingservices.com`.
-
-New reviews then appear under **Forms → review** in Netlify. Spam is filtered automatically.
+The review form uses Netlify Forms, like the enquiry form (see *Forms: enquiries and reviews* below for the one-time setup). New reviews are **not** published automatically, so spam or abusive posts never appear on the site. They're emailed to the business and listed under **Forms → review** in Netlify.
 
 ### Showing a review on the site
 
@@ -120,19 +114,20 @@ Approved reviews live in a short list near the bottom of the Reviews section in 
 
 `area` and `source` are optional. Use real reviews only; reviews copied from Google or elsewhere need the customer's permission. While the list is empty, the section invites customers to be the first to leave a review.
 
-## How the enquiry form works
+## Forms: enquiries and reviews
 
-The site has no server, so when someone presses **Send enquiry**, their own email app opens with the enquiry (including their postcode, if given) written out and addressed to the business email. They then just press send.
+Both forms use [Netlify Forms](https://docs.netlify.com/forms/setup/) (free for up to 100 submissions a month). When someone presses **Send enquiry** or **Send review**, the fields are checked, then the form is sent to Netlify without leaving the page. Netlify stores it, filters spam, and emails it to **dslandscapes84@gmail.com**. Each enquiry includes the customer's name, email, phone, postcode, the service they picked and their message.
 
-To have enquiries sent straight to the inbox instead, use a free form service such as [Formspree](https://formspree.io):
+If sending ever fails (for example, before the site is on Netlify), the visitor sees a link to email it instead. The link is addressed to the address in the form's `data-email="…"`, currently `dslandscapes84@gmail.com`, with everything already filled in.
 
-1. Sign up and create a form to get a URL like `https://formspree.io/f/abcdwxyz`.
-2. In `index.html`, add `action` and `method` to the form's opening tag:
-   ```html
-   <form class="contact-form" id="contact-form" action="https://formspree.io/f/abcdwxyz" method="POST" data-email="sales@dslandscapingservices.com" novalidate>
-   ```
+**One-time setup in Netlify** (after the site is deployed). Without this, the forms can't send:
 
-The fields are still checked before sending.
+1. Open the site in Netlify, go to **Forms**, and click **Enable form detection**.
+2. Redeploy so Netlify finds the forms: **Deploys → Trigger deploy → Deploy site**, or drag the site folder in again if you upload it by hand. Netlify then lists two forms, **enquiry** and **review**.
+3. Go to **Site configuration → Notifications → Emails and webhooks → Form submission notifications → Add notification → Email notification**. Choose **Any form** and enter `dslandscapes84@gmail.com`, then save.
+4. Test it: send an enquiry from the live site and check the Gmail inbox. Notifications come from Netlify (`formresponses@netlify.com`). If the first one lands in Spam, mark it **Not spam** so the rest arrive in the inbox.
+
+To send enquiries to a different address later, change the email in step 3 and the form's `data-email` in `index.html`.
 
 ## Changing the colours and fonts
 
@@ -140,7 +135,17 @@ The colours are set once at the top of `css/styles.css` under `:root`: `--forest
 
 ## Putting it online with Netlify
 
-The site is set up for [Netlify](https://www.netlify.com) (free plan). `netlify.toml` already tells Netlify there's no build step and to publish this folder, so there's nothing to configure.
+The site is set up for [Netlify](https://www.netlify.com) (free plan). `netlify.toml` already tells Netlify there's no build step and to publish this folder, so there's nothing to configure. There are two ways to put it online.
+
+### Option A: drag and drop (quickest)
+
+1. Unzip `dslandscaping-site.zip` (the website files on their own) so you have a folder.
+2. Log in at [app.netlify.com](https://app.netlify.com), go to **Sites** (or **Projects**), and drag the folder onto the **"drag and drop your site output folder here"** area. Netlify Drop at [app.netlify.com/drop](https://app.netlify.com/drop) works too.
+3. The site is live in a few seconds at an address like `random-name-123.netlify.app`. Rename it under **Site configuration → Change site name**.
+
+With this option, each later change means dragging the updated folder onto the site's **Deploys** page again.
+
+### Option B: connect GitHub (updates automatically)
 
 1. Log in at [app.netlify.com](https://app.netlify.com) (signing in with GitHub is easiest).
 2. Choose **Add new site** (or **Add new project**) → **Import an existing project** → **GitHub**, and allow Netlify to access the `dslandscaping-services` repository.
@@ -149,6 +154,8 @@ The site is set up for [Netlify](https://www.netlify.com) (free plan). `netlify.
 5. To tidy the address, go to **Site configuration → Change site name**, e.g. `dslandscaping` → `dslandscaping.netlify.app`.
 
 From then on, every change pushed to that branch goes live automatically.
+
+**Either way,** finish with the one-time form setup under *Forms: enquiries and reviews* above.
 
 ### Connecting dslandscapingservices.com
 

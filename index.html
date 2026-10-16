@@ -542,7 +542,11 @@
           </dl>
         </div>
 
-        <form class="contact-form" id="contact-form" data-email="sales@dslandscapingservices.com" novalidate>
+        <!-- Enquiries are collected by Netlify Forms and emailed to the business (see README.md).
+             data-email is used for the "email it instead" link if sending ever fails. -->
+        <form class="contact-form" id="contact-form" name="enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-email="dslandscapes84@gmail.com" novalidate>
+          <input type="hidden" name="form-name" value="enquiry">
+          <p class="visually-hidden"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
           <div class="form-row">
             <div class="field">
               <label for="name">Name</label>
