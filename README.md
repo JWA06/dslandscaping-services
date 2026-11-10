@@ -2,7 +2,7 @@
 
 The website for **DSLandscaping Services**, Manchester: block paving, tarmac, resin, porcelain, paving slabs, fencing, and artificial and real grass. 20 years of experience, *helping you transform outdoor spaces with confidence*.
 
-Mobile & WhatsApp: 07868 841 474 · Landline: 0161 327 4690 · Email: dslandscapes84@gmail.com · Hours: Monday to Friday, 8am–7pm
+Mobile & WhatsApp: 07868 841 474 · Landline: 0161 327 4649 · Email: sales@dslandscapingservices.com · Hours: Monday to Friday, 8am–7pm
 
 It's plain HTML, CSS and JavaScript. There's no build step and nothing to install, so it can be hosted almost anywhere for free.
 
@@ -70,7 +70,7 @@ Before the site goes live properly, swap them for real photos:
 
 ## ⚠️ Before going live: things to check
 
-The real mobile and WhatsApp number (07868 841 474), landline (0161 327 4690), email, area (Manchester) and hours (Monday to Friday, 8am–7pm) are in place everywhere.
+The real mobile and WhatsApp number (07868 841 474), landline (0161 327 4649), email, area (Manchester) and hours (Monday to Friday, 8am–7pm) are in place everywhere.
 
 Also check these against what the business actually does, and edit anything that isn't right:
 - The eight services (and the matching options in the form's drop-down; each **Enquire** link's `data-service` must match an option exactly)
@@ -175,7 +175,7 @@ The site is set up with **www.dslandscapingservices.com** as its main address (i
 
 If there are already `A` or `CNAME` records for `@` or `www` (for example a parking page), edit or replace them. If there's an `AAAA` record for `@`, delete it.
 
-**Email on the domain:** the domain currently has no email set up (no `MX` records), so the site shows and uses `dslandscapes84@gmail.com`. If you add email to the domain later (e.g. Hostinger Email, so an address like `sales@dslandscapingservices.com` works), the email provider adds its own `MX` and `TXT` records. Leave the Netlify `A` and `CNAME` records above in place, and update the email address in `index.html` once the new one is working.
+**Email on the domain:** the site shows `sales@dslandscapingservices.com`. For that address to receive email, the domain needs email set up (e.g. Hostinger Email), which adds `MX` and `TXT` records in Hostinger's DNS. Leave the Netlify `A` and `CNAME` records above in place alongside them. The forms still send to `dslandscapes84@gmail.com` (set in Netlify's form notifications and the form's `data-email`).
 
 **On Hostinger:** log in to hPanel → **Domains** → `dslandscapingservices.com` → **DNS / Nameservers** → **DNS records**.
 - Find the `A` record with name `@`. Edit it so it points to `75.2.60.5`. If there's more than one `A` record for `@`, delete the others.
